@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /> - EasyCRM</title>
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/MicrosoftAjax.js" type="text/javascript"></script>
+    <script src="../../Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script>
+    <script src="../../Scripts/MicrosoftMvcValidation.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="page">
+
+        <div id="header">
+            <div id="title">
+                <h1 title="An easy-to-use CRM web application">&lt;EasyCRM/&gt;</h1>
+                <!--<h2>An easy-to-use CRM web application</h2>-->
+            </div>
+              
+            <div id="logindisplay">
+                <% Html.RenderPartial("LogOnUserControl"); %>
+            </div> 
+            
+            <div id="menucontainer">
+            
+                <ul id="menu">              
+                    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
+                    <li><%: Html.ActionLink("Tasks", "Index", "Task")%></li>
+                    <li><%: Html.ActionLink("Sectors", "Index", "IndustrialSector")%></li>       
+                    <li><%: Html.ActionLink("Accounts", "Index", "Account")%></li>
+                    <li><%: Html.ActionLink("Contacts", "Index", "Contact")%></li>
+                    <li><%: Html.ActionLink("Opportunities", "Index", "Opportunity")%></li>
+                    <!--<li><%: Html.ActionLink("About", "About", "Home")%></li>-->
+                </ul>
+            
+            </div>
+        </div>
+
+        <div id="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+            <div id="footer">
+                <p>Copyright 2010 &copy; Code and design by <b>kondotine</b>.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
