@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCRM.Model", "EasyCRM.Model\EasyCRM.Model.csproj", "{D490BF98-19CE-44C2-94E0-304730CF5C38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCRM.WebApp", "EasyCRM.WebApp\EasyCRM.WebApp.csproj", "{A4B3EDA0-994E-4F69-BCE7-6D8B25A9BFB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D490BF98-19CE-44C2-94E0-304730CF5C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D490BF98-19CE-44C2-94E0-304730CF5C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D490BF98-19CE-44C2-94E0-304730CF5C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D490BF98-19CE-44C2-94E0-304730CF5C38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4B3EDA0-994E-4F69-BCE7-6D8B25A9BFB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B3EDA0-994E-4F69-BCE7-6D8B25A9BFB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B3EDA0-994E-4F69-BCE7-6D8B25A9BFB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B3EDA0-994E-4F69-BCE7-6D8B25A9BFB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal
