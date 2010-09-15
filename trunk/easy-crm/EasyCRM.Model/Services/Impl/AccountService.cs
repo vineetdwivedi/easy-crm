@@ -5,15 +5,15 @@ using EasyCRM.Model.Repositories.Entity;
 
 namespace EasyCRM.Model.Services.Impl
 {
-    public class AccountService:IAccountService
+    public class AccountService : IAccountService
     {
         private IValidationDictionary _validationDictionary;
         private IAccountRepository _repository;
 
 
-        public AccountService(IValidationDictionary validationDictionary) 
+        public AccountService(IValidationDictionary validationDictionary)
             : this(validationDictionary, new EntityAccountRepository())
-        {}
+        { }
 
 
         public AccountService(IValidationDictionary validationDictionary, IAccountRepository repository)
@@ -30,7 +30,7 @@ namespace EasyCRM.Model.Services.Impl
             if (accountToValidate.Address.Trim().Length == 0)
                 _validationDictionary.AddError("Address", "Address is required.");
             if (accountToValidate.Description.Trim().Length == 0)
-                _validationDictionary.AddError("Description", "Description is required."); 
+                _validationDictionary.AddError("Description", "Description is required.");
             return _validationDictionary.IsValid;
         }
 
@@ -88,7 +88,14 @@ namespace EasyCRM.Model.Services.Impl
 
         public Account GetAccount(int id)
         {
-            return _repository.Get(id);
+            try
+            {
+                return _repository.Get(id);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public IEnumerable<Account> ListAccounts()

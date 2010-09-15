@@ -42,7 +42,19 @@ namespace EasyCRM.Model.Repositories.Entity
         public IEnumerable<Task> ListAll()
         {
             return _entities.TaskSet.ToList();
+        }
+
+        public IEnumerable<Task> ListAllByUser(string userName)
+        {
+            return _entities.TaskSet.Where(task => task.ResponsibleUser.UserName == userName);
         } 
+
+        public IEnumerable<Task> ListAllByCriteria(string userName,string status, string priority)
+        {
+            return _entities.TaskSet.Where(task => (task.ResponsibleUser.UserName == userName) &&
+                                                   (task.Status.Contains(status) && task.Priority.Contains(priority)));
+        } 
+
         #endregion
     }
 }

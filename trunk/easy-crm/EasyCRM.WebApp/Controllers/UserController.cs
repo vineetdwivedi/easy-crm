@@ -141,6 +141,8 @@ namespace EasyCRM.WebApp.Controllers
         [HttpPost]
         public ActionResult Edit(string userName, FormCollection formValues)
         {
+            int minPasswordLength = _membershipService.MinPasswordLength;
+
             // we retrieve existing user from the db
             User user = _membershipService.GetUser(userName);
 
@@ -149,12 +151,9 @@ namespace EasyCRM.WebApp.Controllers
             // we update user with form posted values
             TryUpdateModel(user);
 
-            if (ModelState.IsValid)
+            if (_membershipService.UpdateUser(user, oldPassword))
             {
-                if (_membershipService.UpdateUser(user, oldPassword))
-                {
-                    return View("Success");
-                }
+                return View("Success");
             }
 
             // If we got this far, something failed, redisplay form

@@ -9,7 +9,7 @@
     }
     else {
 %> 
-        [ <img src="../../Content/Images/key.png"  alt="Log On"/> <%: Html.ActionLink("Log On", "LogOn", "User") %> ]
+        [ <img src="../../../Content/Images/key.png"  alt="Log On"/> <%: Html.ActionLink("Log On", "LogOn", "User") %> ]
 <%
     }
 %>

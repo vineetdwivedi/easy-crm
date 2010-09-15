@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 09/15/2010 03:06:08
+-- Date Created: 09/15/2010 10:37:02
 -- Generated from EDMX file: G:\Documents\VisualStudio\EasyCRM\EasyCRM.Model\Domains\EasyCRMModel.edmx
 -- --------------------------------------------------
 
@@ -35,14 +35,14 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_AccountOpportunity]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[OpportunitySet] DROP CONSTRAINT [FK_AccountOpportunity];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ContactAccount]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ContactSet] DROP CONSTRAINT [FK_ContactAccount];
-GO
 IF OBJECT_ID(N'[dbo].[FK_TaskAccount]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[TaskSet] DROP CONSTRAINT [FK_TaskAccount];
 GO
 IF OBJECT_ID(N'[dbo].[FK_TaskContact]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[TaskSet] DROP CONSTRAINT [FK_TaskContact];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AccountContact]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ContactSet] DROP CONSTRAINT [FK_AccountContact];
 GO
 
 -- --------------------------------------------------
@@ -192,7 +192,7 @@ ADD CONSTRAINT [FK_UserContact]
     FOREIGN KEY ([ResponsibleUser_Id])
     REFERENCES [dbo].[UserSet]
         ([Id])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_UserContact'
 CREATE INDEX [IX_FK_UserContact]
@@ -220,7 +220,7 @@ ADD CONSTRAINT [FK_UserOpportunity]
     FOREIGN KEY ([ResponsibleUser_Id])
     REFERENCES [dbo].[UserSet]
         ([Id])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_UserOpportunity'
 CREATE INDEX [IX_FK_UserOpportunity]

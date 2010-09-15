@@ -20,7 +20,7 @@
             </div>
               
             <div id="logindisplay">
-                <% Html.RenderPartial("LogOnUserControl"); %>
+                <% Html.RenderPartial("LogOnUser"); %>
             </div> 
             
             <div id="menucontainer">
@@ -28,7 +28,7 @@
                 <ul id="menu">              
                     <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
                     <li><%: Html.ActionLink("Tasks", "Index", "Task")%></li>
-                    <li><%: Html.ActionLink("Sectors", "Index", "IndustrialSector")%></li>       
+                    <li><%: Html.ActionLink("Sectors", "Index", "Sector")%></li>       
                     <li><%: Html.ActionLink("Accounts", "Index", "Account")%></li>
                     <li><%: Html.ActionLink("Contacts", "Index", "Contact")%></li>
                     <li><%: Html.ActionLink("Opportunities", "Index", "Opportunity")%></li>

@@ -5,15 +5,15 @@ using EasyCRM.Model.Repositories.Entity;
 
 namespace EasyCRM.Model.Services.Impl
 {
-    public class OpportunityService:IOpportunityService
+    public class OpportunityService : IOpportunityService
     {
         private IValidationDictionary _validationDictionary;
         private IOpportunityRepository _repository;
 
 
-        public OpportunityService(IValidationDictionary validationDictionary) 
+        public OpportunityService(IValidationDictionary validationDictionary)
             : this(validationDictionary, new EntityOpportunityRepository())
-        {}
+        { }
 
 
         public OpportunityService(IValidationDictionary validationDictionary, IOpportunityRepository repository)
@@ -28,7 +28,7 @@ namespace EasyCRM.Model.Services.Impl
             if (opportunityToValidate.Amount <= 0)
                 _validationDictionary.AddError("Amount", "Amount must be greater than 0.");
             if (opportunityToValidate.Description.Trim().Length == 0)
-                _validationDictionary.AddError("Description", "Description is required."); 
+                _validationDictionary.AddError("Description", "Description is required.");
             return _validationDictionary.IsValid;
         }
 
@@ -86,7 +86,14 @@ namespace EasyCRM.Model.Services.Impl
 
         public Opportunity GetOpportunity(int id)
         {
-            return _repository.Get(id);
+            try
+            {
+                return _repository.Get(id);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public IEnumerable<Opportunity> ListOpportunities()

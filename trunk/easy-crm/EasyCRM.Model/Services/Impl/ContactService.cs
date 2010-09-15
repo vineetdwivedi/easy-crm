@@ -6,15 +6,15 @@ using EasyCRM.Model.Repositories.Entity;
 
 namespace EasyCRM.Model.Services.Impl
 {
-    public class ContactService:IContactService
+    public class ContactService : IContactService
     {
         private IValidationDictionary _validationDictionary;
         private IContactRepository _repository;
 
 
-        public ContactService(IValidationDictionary validationDictionary) 
+        public ContactService(IValidationDictionary validationDictionary)
             : this(validationDictionary, new EntityContactRepository())
-        {}
+        { }
 
 
         public ContactService(IValidationDictionary validationDictionary, IContactRepository repository)
@@ -31,7 +31,7 @@ namespace EasyCRM.Model.Services.Impl
             if (contactToValidate.LastName.Trim().Length == 0)
                 _validationDictionary.AddError("LastName", "Last name is required.");
             if (contactToValidate.Address.Trim().Length == 0)
-                _validationDictionary.AddError("Address", "Address is required."); 
+                _validationDictionary.AddError("Address", "Address is required.");
             if (contactToValidate.Email.Length > 0 && !Regex.IsMatch(contactToValidate.Email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
                 _validationDictionary.AddError("Email", "Invalid email address.");
             return _validationDictionary.IsValid;
@@ -91,7 +91,14 @@ namespace EasyCRM.Model.Services.Impl
 
         public Contact GetContact(int id)
         {
-            return _repository.Get(id);
+            try
+            {
+                return _repository.Get(id);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public IEnumerable<Contact> ListContacts()

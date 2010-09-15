@@ -73,7 +73,7 @@ if(!String.IsNullOrEmpty(mvcViewDataTypeGenericString)) {
 	FilterProperties(mvcHost.ViewDataType, properties);
 #>
     <fieldset>
-        <legend><#= mvcHost.ItemName #> Information</legend>
+        <legend> Information</legend>
         <table class="display-table">
 <#
 	foreach(KeyValuePair<string, string> property in properties) {

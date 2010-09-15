@@ -16,7 +16,7 @@
         <fieldset>
             <legend>Task Information</legend>
             <%: Html.EditorFor(model => model.Task,
-                  new { Statuses = Model.Statuses, Priorities = Model.Priorities}) %>
+                  new { Statuses = Model.Statuses, Priorities = Model.Priorities, DisabledDates = true}) %>
             <p>
                 <input type="submit" value="Save" />
             </p>

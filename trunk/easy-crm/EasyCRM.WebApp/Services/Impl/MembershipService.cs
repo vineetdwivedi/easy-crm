@@ -64,6 +64,16 @@ namespace EasyCRM.WebApp.Services.Impl
 
         public bool UpdateUser(User userToUpdate, string oldPassword)
         {
+            string newPassword = userToUpdate.Password;
+
+            if (String.IsNullOrEmpty(newPassword)) throw new ArgumentException("Value cannot be null or empty.", "password");
+
+            if (newPassword.Length < this.MinPasswordLength)
+            {
+                _userService.addError("Password", "The password must be at least " + MinPasswordLength + " characters long.");
+                return false;
+            }
+
             // The underlying ChangePassword() will throw an exception rather
             // than return false in certain failure scenarios.
             try
@@ -71,11 +81,11 @@ namespace EasyCRM.WebApp.Services.Impl
                 MembershipUser currentUser = _provider.GetUser(userToUpdate.UserName, true /* userIsOnline */);
 
                 //we update the password of the user in the aspnet membership management database
-                bool b1 = currentUser.ChangePassword(oldPassword, userToUpdate.Password);
-                //we update the password of the user in our application database
-                bool b2 = _userService.EditUser(userToUpdate);
+                if (currentUser.ChangePassword(oldPassword, userToUpdate.Password))
+                    //we also update the password of the user in our application database
+                    return _userService.EditUser(userToUpdate);
 
-                return b1 && b2;
+                return false;
             }
             catch (ArgumentException)
             {
