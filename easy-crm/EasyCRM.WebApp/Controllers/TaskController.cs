@@ -34,8 +34,10 @@ namespace EasyCRM.WebApp.Controllers
 
         public ActionResult Index()
         {
-            //we list all tasks from db, and pass them to the view
-            return View(_taskService.ListTasks());
+            //we list all tasks of the user from db, and pass them to the view
+            string userName = this.User.Identity.Name;
+
+            return View(_taskService.ListTasksByUser(userName));
         }
 
         //
@@ -59,16 +61,7 @@ namespace EasyCRM.WebApp.Controllers
 
         public ActionResult Create()
         {
-            DateTime current = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour + 1, 0, 0);
-
-            Task task = new Task
-            {
-                StartDate = current,
-                LimitDate = current.AddDays(5),
-                EndDate = current.AddDays(10)
-            };
-
-            return View(new TaskViewModel(task));
+            return View(new TaskViewModel());
         }
 
         //
@@ -114,15 +107,13 @@ namespace EasyCRM.WebApp.Controllers
         // POST: /Task/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Task task)
+        public ActionResult Edit(int id, FormCollection formValues)
         {
+            // we retrieve existing task from the db
+            Task task = _taskService.GetTask(id);
 
-            // normaly we should have those parameters : "Edit(int id, FormCollection values)"
-            // So we would retrieve the existing task from db (by his id) and then update the 
-            // fields with the form posted values.But in this specific case we can directly
-            // pass an "Task" instance, the system will automatically bind the "id" 
-            // field from the request(/Task/Edit/{id}) and the other fields from the form.
-            // ...
+            // we update the task with form posted values
+            TryUpdateModel(task, "Task" /*prefix, as the task in inside the TaskViewModel"*/);
 
             if (!_taskService.EditTask(task))
             {
@@ -152,18 +143,36 @@ namespace EasyCRM.WebApp.Controllers
         // POST: /Task/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection formValues)
+        public ActionResult Delete(Task task)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            if (!_taskService.DeleteTask(task))
+                return View(task);
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+
+        //
+        // GET: /Task/Search
+
+       public ActionResult Search()
+        {
+            return View(new SearchTaskViewModel());
+        }
+
+        //
+        // POST: /Task/Search/5
+
+        [HttpPost]
+       public ActionResult Search(FormCollection formValues)
+        {
+            //we get the tasks matching the criteria from the db, and pass them to Index view
+            string status = formValues["Status"];
+            string priority = formValues["Priority"];
+            string userName = this.User.Identity.Name;
+
+            var tasks = _taskService.ListTasksByCriteria(userName, status, priority);
+
+            return View("Index", tasks);
         }
     }
 }

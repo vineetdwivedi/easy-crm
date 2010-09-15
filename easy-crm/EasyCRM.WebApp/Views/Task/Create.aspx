@@ -13,13 +13,13 @@
     <fieldset>
         <legend>Task Information</legend>
         <%: Html.EditorFor(model => model.Task,
-                  new { Statuses = Model.Statuses, Priorities = Model.Priorities}) %>
+                              new { Statuses = Model.Statuses, Priorities = Model.Priorities, DisabledDates = false })%>
         <p>
             <input type="submit" value="Create" />
         </p>
     </fieldset>
     <% } %>
     <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
+        <%: Html.ActionLink("Back to all Tasks", "Index") %>
     </div>
 </asp:Content>

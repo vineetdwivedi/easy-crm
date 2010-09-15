@@ -5,15 +5,15 @@ using EasyCRM.Model.Repositories.Entity;
 
 namespace EasyCRM.Model.Services.Impl
 {
-    public class IndustrialSectorService:IIndustrialSectorService
+    public class IndustrialSectorService : IIndustrialSectorService
     {
         private IValidationDictionary _validationDictionary;
         private IIndustrialSectorRepository _repository;
 
 
-        public IndustrialSectorService(IValidationDictionary validationDictionary) 
+        public IndustrialSectorService(IValidationDictionary validationDictionary)
             : this(validationDictionary, new EntityIndustrialSectorRepository())
-        {}
+        { }
 
 
         public IndustrialSectorService(IValidationDictionary validationDictionary, IIndustrialSectorRepository repository)
@@ -27,7 +27,7 @@ namespace EasyCRM.Model.Services.Impl
         {
 
             if (sectorToValidate.Sector.Trim().Length == 0)
-                _validationDictionary.AddError("Sector", "Sector is required."); 
+                _validationDictionary.AddError("Sector", "Sector is required.");
             return _validationDictionary.IsValid;
         }
 
@@ -85,7 +85,14 @@ namespace EasyCRM.Model.Services.Impl
 
         public IndustrialSector GetIndustrialSector(int id)
         {
-            return _repository.Get(id);
+            try
+            {
+                return _repository.Get(id);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public IEnumerable<IndustrialSector> ListIndustrialSectors()

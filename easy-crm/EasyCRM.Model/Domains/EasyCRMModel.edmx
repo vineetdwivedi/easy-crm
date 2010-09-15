@@ -120,9 +120,7 @@
     <Property Name="Sector" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="UserContact">
-    <End Role="User" Type="EasyCRMModel.Store.UserSet" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="User" Type="EasyCRMModel.Store.UserSet" Multiplicity="1" />
     <End Role="Contact" Type="EasyCRMModel.Store.ContactSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
@@ -148,9 +146,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="UserOpportunity">
-    <End Role="User" Type="EasyCRMModel.Store.UserSet" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="User" Type="EasyCRMModel.Store.UserSet" Multiplicity="1" />
     <End Role="Opportunity" Type="EasyCRMModel.Store.OpportunitySet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
@@ -367,7 +363,6 @@
         </EntityType>
         <Association Name="UserContact">
           <End Type="EasyCRMModel.User" Role="User" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="EasyCRMModel.Contact" Role="Contact" Multiplicity="*" />
         </Association>
@@ -379,7 +374,6 @@
         </Association>
         <Association Name="UserOpportunity">
           <End Type="EasyCRMModel.User" Role="User" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="EasyCRMModel.Opportunity" Role="Opportunity" Multiplicity="*" />
         </Association>

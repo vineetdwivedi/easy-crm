@@ -6,15 +6,15 @@ using EasyCRM.Model.Repositories.Entity;
 
 namespace EasyCRM.Model.Services.Impl
 {
-    public class UserService:IUserService
+    public class UserService : IUserService
     {
         private IValidationDictionary _validationDictionary;
         private IUserRepository _repository;
 
 
-        public UserService(IValidationDictionary validationDictionary) 
+        public UserService(IValidationDictionary validationDictionary)
             : this(validationDictionary, new EntityUserRepository())
-        {}
+        { }
 
 
         public UserService(IValidationDictionary validationDictionary, IUserRepository repository)
@@ -31,12 +31,17 @@ namespace EasyCRM.Model.Services.Impl
             if (userToValidate.LastName.Trim().Length == 0)
                 _validationDictionary.AddError("LastName", "Last Name is required.");
             if (userToValidate.UserName.Trim().Length == 0)
-                _validationDictionary.AddError("Login", "User Name is required.");
+                _validationDictionary.AddError("UserName", "User Name is required.");
             if (userToValidate.Password.Trim().Length == 0)
-                _validationDictionary.AddError("Password", "Password is required."); 
+                _validationDictionary.AddError("Password", "Password is required.");
             if (userToValidate.Email.Length > 0 && !Regex.IsMatch(userToValidate.Email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
                 _validationDictionary.AddError("Email", "Invalid Email Address.");
             return _validationDictionary.IsValid;
+        }
+
+        public void addError(string key, string errorMessage)
+        {
+            _validationDictionary.AddError(key, errorMessage);
         }
 
 
@@ -98,7 +103,14 @@ namespace EasyCRM.Model.Services.Impl
 
         public User GetUser(string userName)
         {
-            return _repository.Get(userName);
+            try
+            {
+                return _repository.Get(userName);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
 

@@ -6,15 +6,15 @@ using EasyCRM.Model.Repositories.Entity;
 
 namespace EasyCRM.Model.Services.Impl
 {
-    public class TaskService:ITaskService
+    public class TaskService : ITaskService
     {
         private IValidationDictionary _validationDictionary;
         private ITaskRepository _repository;
 
 
-        public TaskService(IValidationDictionary validationDictionary) 
+        public TaskService(IValidationDictionary validationDictionary)
             : this(validationDictionary, new EntityTaskRepository())
-        {}
+        { }
 
 
         public TaskService(IValidationDictionary validationDictionary, ITaskRepository repository)
@@ -72,9 +72,13 @@ namespace EasyCRM.Model.Services.Impl
 
         public bool EditTask(Task taskToEdit)
         {
-            // Validation logic
-            if (!ValidateTask(taskToEdit))
+            // we only validate the "Subject" as the other fields( StarDate,LimitDate,EndDate) cannot
+            // be edited once the task has been created, and 'Status' and 'Priority' don't need to.
+            if (taskToEdit.Subject.Trim().Length == 0)
+            {
+                _validationDictionary.AddError("Task.Subject", "A Subject is required.");
                 return false;
+            }
 
             // Database logic
             try
@@ -103,12 +107,30 @@ namespace EasyCRM.Model.Services.Impl
 
         public Task GetTask(int id)
         {
-            return _repository.Get(id);
+            try
+            {
+                return _repository.Get(id);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public IEnumerable<Task> ListTasks()
         {
             return _repository.ListAll();
+        }
+
+        public IEnumerable<Task> ListTasksByUser(string userName)
+        {
+            return _repository.ListAllByUser(userName);
+        }
+
+        public IEnumerable<Task> ListTasksByCriteria(string userName, string status, string priority)
+        {
+
+            return _repository.ListAllByCriteria(userName, status, priority);
         }
 
         #endregion

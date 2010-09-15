@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using EasyCRM.Model.Domains;
+using System.Collections.Generic;
 
 
 namespace EasyCRM.WebApp.ViewModels
@@ -15,24 +16,34 @@ namespace EasyCRM.WebApp.ViewModels
 
         public TaskViewModel()
         {
+            //we round the current time like this: 13:45:0 ==> 14:00:00
+            DateTime current = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
+                                            (DateTime.Now.Hour + 1) % 24, 0, 0);
+
+            Task = new Task
+            {
+                StartDate = current,
+                LimitDate = current.AddDays(5),
+                EndDate = current.AddDays(10)
+            };
+
+            //creating the elements for task status and task priority drop down lists
+            List<string> statuses = new List<string>(Enum.GetNames(typeof(TaskStatus)));
+            List<string> priorities = new List<string>(Enum.GetNames(typeof(TaskPriority)));
+
+            Statuses = new SelectList(statuses, Task.Status);
+            Priorities = new SelectList(priorities, Task.Priority);
         }
 
         public TaskViewModel(Task task)
-        { 
-            Task = task;
-
+        {
             //creating the elements for task status and task priority drop down lists
-            var statuses = from TaskStatus s in Enum.GetValues(typeof(TaskStatus))
-                           select new { ID = s, Name = s.ToString() };
+            List<string> statuses = new List<string>(Enum.GetNames(typeof(TaskStatus)));
+            List<string> priorities = new List<string>(Enum.GetNames(typeof(TaskPriority)));
 
-            var priorities = from TaskPriority s in Enum.GetValues(typeof(TaskPriority))
-                             select new { ID = s, Name = s.ToString() };
-
-           
-            Statuses = new SelectList(statuses, "ID", "Name", task.Status);
-            Priorities = new SelectList(priorities, "ID", "Name", task.Priority);
-
-
+            Task = task;
+            Statuses = new SelectList(statuses, Task.Status);
+            Priorities = new SelectList(priorities, Task.Priority);
         }
     }
 }

@@ -75,9 +75,9 @@ namespace EasyCRM.WebApp.Controllers
         public ActionResult Edit(IndustrialSector industrialSector)
         {
             // normaly we should have those parameters : "Edit(int id, FormCollection values)"
-            // So we would retrieve the existing sector from db (by his id) and then update the 
+            // Then we would retrieve the existing sector from db (by his id) and then update the 
             // fields with the form posted values.But in this specific case we can directly
-            // pass an "IndustrialSector" instance, the system will automatically bind the "id" 
+            // pass an "IndustrialSector" instance, the binder has automatically bound the "id" 
             // field from the request(/Sector/Edit/{id}) and the "sector" field from the form.
             // ...
 

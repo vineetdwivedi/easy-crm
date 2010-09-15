@@ -32,7 +32,6 @@ namespace EasyCRM.Model.Domains
             public object UserName { get; set; }
 
             [Required(ErrorMessage = "A Password is required")]
-            [ValidatePasswordLength(4)]
             [DataType(DataType.Password)]
             [DisplayFormat(ConvertEmptyStringToNull = false)]
             public object Password { get; set; }
