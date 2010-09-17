@@ -249,6 +249,15 @@ input[type="password"]
 	border-radius: 7px;
 }
 
+textarea
+{
+	border: 1px solid #ccc;
+	padding: 5px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+}
+
 /* TABLE
 ----------------------------------------------------------*/
 
@@ -396,7 +405,6 @@ div#title
 .display-field, .editor-field
 {
     text-align:left;
-
 }
 
 .editor-table, .display-table

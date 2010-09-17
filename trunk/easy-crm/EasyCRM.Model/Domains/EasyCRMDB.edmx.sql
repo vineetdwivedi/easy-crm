@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 09/15/2010 10:37:02
+-- Date Created: 09/17/2010 00:02:41
 -- Generated from EDMX file: G:\Documents\VisualStudio\EasyCRM\EasyCRM.Model\Domains\EasyCRMModel.edmx
 -- --------------------------------------------------
 
@@ -105,7 +105,7 @@ CREATE TABLE [dbo].[ContactSet] (
     [Status] nvarchar(max)  NOT NULL,
     [Email] nvarchar(max)  NOT NULL,
     [ResponsibleUser_Id] int  NOT NULL,
-    [Account_Id] int  NOT NULL
+    [Account_Id] int  NULL
 );
 GO
 
@@ -192,7 +192,7 @@ ADD CONSTRAINT [FK_UserContact]
     FOREIGN KEY ([ResponsibleUser_Id])
     REFERENCES [dbo].[UserSet]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_UserContact'
 CREATE INDEX [IX_FK_UserContact]
@@ -304,7 +304,7 @@ ADD CONSTRAINT [FK_AccountContact]
     FOREIGN KEY ([Account_Id])
     REFERENCES [dbo].[AccountSet]
         ([Id])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_AccountContact'
 CREATE INDEX [IX_FK_AccountContact]

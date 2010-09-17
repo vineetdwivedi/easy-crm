@@ -1,12 +1,9 @@
-﻿using System;
+﻿using System.Net;
 using System.Web.Mvc;
 using EasyCRM.Model.Domains;
 using EasyCRM.Model.Services;
 using EasyCRM.Model.Services.Impl;
 using EasyCRM.WebApp.ViewModels;
-using System.Net;
-using EasyCRM.WebApp.Services;
-using EasyCRM.WebApp.Services.Impl;
 
 namespace EasyCRM.WebApp.Controllers
 {
@@ -15,18 +12,18 @@ namespace EasyCRM.WebApp.Controllers
     {
 
         ITaskService _taskService;
-        IMembershipService _membershipService;
+        IUserService _userService;
 
         public TaskController()
         {
             _taskService = new TaskService(new ModelStateWrapper(this.ModelState));
-            _membershipService = new MembershipService(new UserService(new ModelStateWrapper(this.ModelState)));
+            _userService = new UserService(new ModelStateWrapper(this.ModelState));
         }
 
-        public TaskController(ITaskService service, IMembershipService membershipService)
+        public TaskController(ITaskService service, IUserService userService)
         {
             _taskService = service;
-            _membershipService = membershipService;
+            _userService = userService;
         }
 
         //
@@ -37,7 +34,10 @@ namespace EasyCRM.WebApp.Controllers
             //we list all tasks of the user from db, and pass them to the view
             string userName = this.User.Identity.Name;
 
-            return View(_taskService.ListTasksByUser(userName));
+            var tasks = _taskService.ListTasksByCriteria(
+                task => task.ResponsibleUser.UserName == userName);
+           
+            return View(tasks);
         }
 
         //
@@ -45,7 +45,7 @@ namespace EasyCRM.WebApp.Controllers
 
         public ActionResult Details(int id)
         {
-            var task = _taskService.GetTask(id);
+            Task task = _taskService.GetTask(id);
 
             if (task == null)
             {
@@ -72,10 +72,10 @@ namespace EasyCRM.WebApp.Controllers
         {           
             string userName = this.User.Identity.Name;
             //we get the user responsible for the task
-            User responsibleUser = _membershipService.GetUser(userName);
+            User responsibleUser = _userService.GetUser(userName);
 
             task.ResponsibleUser = responsibleUser;
-            responsibleUser.Tasks.Add(task);
+            responsibleUser.Tasks.Add(task); //maybe useless, as EF takes care of that
 
             if (!_taskService.CreateTask(task))
             {
@@ -91,7 +91,7 @@ namespace EasyCRM.WebApp.Controllers
         public ActionResult Edit(int id)
         {
             //getting the task to edit
-            var task = _taskService.GetTask(id);
+            Task task = _taskService.GetTask(id);
 
             if (task == null)
             {
@@ -112,8 +112,14 @@ namespace EasyCRM.WebApp.Controllers
             // we retrieve existing task from the db
             Task task = _taskService.GetTask(id);
 
+            if (task == null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.NotFound;
+                return View("NotFound");
+            }
+
             // we update the task with form posted values
-            TryUpdateModel(task, "Task" /*prefix, as the task in inside the TaskViewModel"*/);
+            TryUpdateModel(task, "Task" /*prefix, as the task is inside the Task editor"*/);
 
             if (!_taskService.EditTask(task))
             {
@@ -128,7 +134,7 @@ namespace EasyCRM.WebApp.Controllers
 
         public ActionResult Delete(int id)
         {
-            var task = _taskService.GetTask(id);
+            Task task = _taskService.GetTask(id);
 
             if (task == null)
             {
@@ -170,7 +176,8 @@ namespace EasyCRM.WebApp.Controllers
             string priority = formValues["Priority"];
             string userName = this.User.Identity.Name;
 
-            var tasks = _taskService.ListTasksByCriteria(userName, status, priority);
+            var tasks = _taskService.ListTasksByCriteria(task => (task.ResponsibleUser.UserName == userName) &&
+                                                                 task.Status.Contains(status) && task.Priority.Contains(priority));
 
             return View("Index", tasks);
         }

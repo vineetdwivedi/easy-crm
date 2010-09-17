@@ -84,7 +84,7 @@
     <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ResponsibleUser_Id" Type="int" Nullable="false" />
-    <Property Name="Account_Id" Type="int" Nullable="false" />
+    <Property Name="Account_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="TaskSet">
     <Key>
@@ -120,7 +120,9 @@
     <Property Name="Sector" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="UserContact">
-    <End Role="User" Type="EasyCRMModel.Store.UserSet" Multiplicity="1" />
+    <End Role="User" Type="EasyCRMModel.Store.UserSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Contact" Type="EasyCRMModel.Store.ContactSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
@@ -222,9 +224,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="AccountContact">
-    <End Role="Account" Type="EasyCRMModel.Store.AccountSet" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Account" Type="EasyCRMModel.Store.AccountSet" Multiplicity="0..1" />
     <End Role="Contact" Type="EasyCRMModel.Store.ContactSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Account">
@@ -363,6 +363,7 @@
         </EntityType>
         <Association Name="UserContact">
           <End Type="EasyCRMModel.User" Role="User" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
           </End>
           <End Type="EasyCRMModel.Contact" Role="Contact" Multiplicity="*" />
         </Association>
@@ -402,8 +403,7 @@
           <End Type="EasyCRMModel.Contact" Role="Contact" Multiplicity="0..1" />
         </Association>
         <Association Name="AccountContact">
-          <End Type="EasyCRMModel.Account" Role="Account" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
+          <End Type="EasyCRMModel.Account" Role="Account" Multiplicity="0..1" >
           </End>
           <End Type="EasyCRMModel.Contact" Role="Contact" Multiplicity="*" />
         </Association>
@@ -553,6 +553,7 @@
       <EndProperty Name="Contact">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="Account_Id" IsNull="false" />
     </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>

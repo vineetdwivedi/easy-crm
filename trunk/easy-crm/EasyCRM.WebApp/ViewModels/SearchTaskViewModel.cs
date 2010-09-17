@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using EasyCRM.Model.Domains;
 
@@ -18,7 +16,6 @@ namespace EasyCRM.WebApp.ViewModels
 
         public SearchTaskViewModel()
         {
-
             //creating the elements for task status and task priority drop down lists
             List<string> statuses = new List<string>(Enum.GetNames(typeof(TaskStatus)));
             List<string> priorities = new List<string>(Enum.GetNames(typeof(TaskPriority)));
@@ -29,8 +26,6 @@ namespace EasyCRM.WebApp.ViewModels
 
             Statuses = new SelectList(statuses, "");
             Priorities = new SelectList(priorities, "");
-
-
         }
     }
 

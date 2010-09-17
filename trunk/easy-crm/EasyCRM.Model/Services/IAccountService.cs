@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using EasyCRM.Model.Domains;
+using System.Linq.Expressions;
+using System;
 
 namespace EasyCRM.Model.Services
 {
@@ -10,6 +12,6 @@ namespace EasyCRM.Model.Services
         bool EditAccount(Account accountToEdit);
         Account GetAccount(int id);
         IEnumerable<Account> ListAccounts();
-
+        IEnumerable<Account> ListAccountsByCriteria(Expression<Func<Account, bool>> predicate);
     }
 }

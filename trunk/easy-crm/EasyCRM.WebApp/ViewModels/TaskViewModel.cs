@@ -28,8 +28,8 @@ namespace EasyCRM.WebApp.ViewModels
             };
 
             //creating the elements for task status and task priority drop down lists
-            List<string> statuses = new List<string>(Enum.GetNames(typeof(TaskStatus)));
-            List<string> priorities = new List<string>(Enum.GetNames(typeof(TaskPriority)));
+            var statuses = Enum.GetNames(typeof(TaskStatus));
+            var priorities = Enum.GetNames(typeof(TaskPriority));
 
             Statuses = new SelectList(statuses, Task.Status);
             Priorities = new SelectList(priorities, Task.Priority);
@@ -38,8 +38,8 @@ namespace EasyCRM.WebApp.ViewModels
         public TaskViewModel(Task task)
         {
             //creating the elements for task status and task priority drop down lists
-            List<string> statuses = new List<string>(Enum.GetNames(typeof(TaskStatus)));
-            List<string> priorities = new List<string>(Enum.GetNames(typeof(TaskPriority)));
+            var statuses = Enum.GetNames(typeof(TaskStatus));
+            var priorities = Enum.GetNames(typeof(TaskPriority));
 
             Task = task;
             Statuses = new SelectList(statuses, Task.Status);

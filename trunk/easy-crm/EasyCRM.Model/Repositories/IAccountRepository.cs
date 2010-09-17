@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using EasyCRM.Model.Domains;
+using System.Linq.Expressions;
+using System;
 
 namespace EasyCRM.Model.Repositories
 {
@@ -10,6 +12,6 @@ namespace EasyCRM.Model.Repositories
         Account Update(Account accountToUpdate);
         Account Get(int id);
         IEnumerable<Account> ListAll();
-
+        IEnumerable<Account> ListAllByCriteria(Expression<Func<Account, bool>> predicate);
     }
 }

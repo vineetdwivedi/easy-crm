@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using EasyCRM.Model.Domains;
 using EasyCRM.Model.Repositories;
 using EasyCRM.Model.Repositories.Entity;
@@ -122,15 +123,9 @@ namespace EasyCRM.Model.Services.Impl
             return _repository.ListAll();
         }
 
-        public IEnumerable<Task> ListTasksByUser(string userName)
+        public IEnumerable<Task> ListTasksByCriteria(Expression<Func<Task, bool>> predicate)
         {
-            return _repository.ListAllByUser(userName);
-        }
-
-        public IEnumerable<Task> ListTasksByCriteria(string userName, string status, string priority)
-        {
-
-            return _repository.ListAllByCriteria(userName, status, priority);
+            return _repository.ListAllByCriteria(predicate);
         }
 
         #endregion

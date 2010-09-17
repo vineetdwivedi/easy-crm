@@ -52,7 +52,11 @@ namespace EasyCRM.WebApp.Services.Impl
             //we create our "representation" of the user in our application database
             if (status == MembershipCreateStatus.Success)
             {
-                _userService.CreateUser(userToCreate);
+                if (_userService.CreateUser(userToCreate))
+                {
+                    _provider.DeleteUser(userToCreate.UserName, true);
+                    return MembershipCreateStatus.ProviderError;
+                }
             }
             return status;
         }

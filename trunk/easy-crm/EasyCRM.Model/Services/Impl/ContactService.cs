@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 using EasyCRM.Model.Domains;
 using EasyCRM.Model.Repositories;
@@ -104,6 +106,11 @@ namespace EasyCRM.Model.Services.Impl
         public IEnumerable<Contact> ListContacts()
         {
             return _repository.ListAll();
+        }
+
+        public IEnumerable<Contact> ListContactsByCriteria(Expression<Func<Contact, bool>> predicate)
+        {
+            return _repository.ListAllByCriteria(predicate);
         }
 
         #endregion

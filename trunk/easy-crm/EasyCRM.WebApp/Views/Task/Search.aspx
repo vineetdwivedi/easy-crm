@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<EasyCRM.WebApp.ViewModels.SearchTaskViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Search
+    Search Tasks
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
@@ -14,18 +14,18 @@
         <table class="editor-table">
             <tr>
                 <td class="editor-label">
-                    Status
+                   <%: Html.LabelFor(model => model.Status) %>
                 </td>
                 <td class="editor-field">
-                    <%: Html.DropDownList("Status", Model.Statuses) %>
+                    <%: Html.DropDownListFor(model => model.Status, Model.Statuses)%>
                 </td>
             </tr>
             <tr>
                 <td class="editor-label">
-                    Priority
+                   <%: Html.LabelFor(model => model.Priority) %>
                 </td>
                 <td class="editor-field">
-                    <%: Html.DropDownList("Priority", Model.Priorities) %>
+                    <%: Html.DropDownListFor(model => model.Priority, Model.Priorities)%>
                 </td>
             </tr>
         </table>
