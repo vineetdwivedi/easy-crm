@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using EasyCRM.Model.Domains;
+using System.Linq.Expressions;
+using System;
 
 namespace EasyCRM.Model.Repositories
 {
@@ -10,8 +12,6 @@ namespace EasyCRM.Model.Repositories
         Task Update(Task taskToUpdate);
         Task Get(int id);
         IEnumerable<Task> ListAll();
-        IEnumerable<Task> ListAllByUser(string userName);
-        IEnumerable<Task> ListAllByCriteria(string userName, string status, string priority);
-
+        IEnumerable<Task> ListAllByCriteria(Expression<Func<Task, bool>> predicate);
     }
 }

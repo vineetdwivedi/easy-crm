@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using EasyCRM.Model.Domains;
 
 namespace EasyCRM.Model.Repositories
@@ -10,6 +12,6 @@ namespace EasyCRM.Model.Repositories
         Contact Update(Contact contactToUpdate);
         Contact Get(int id);
         IEnumerable<Contact> ListAll();
-
+        IEnumerable<Contact> ListAllByCriteria(Expression<Func<Contact, bool>> predicate);
     }
 }

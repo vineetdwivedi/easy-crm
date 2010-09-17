@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EasyCRM.Model.Domains;
+using System.Linq.Expressions;
+using System;
 
 namespace EasyCRM.Model.Repositories.Entity
 {
@@ -44,17 +46,13 @@ namespace EasyCRM.Model.Repositories.Entity
             return _entities.TaskSet.ToList();
         }
 
-        public IEnumerable<Task> ListAllByUser(string userName)
+        public IEnumerable<Task> ListAllByCriteria(Expression<Func<Task, bool>> predicate)
         {
-            return _entities.TaskSet.Where(task => task.ResponsibleUser.UserName == userName);
-        } 
-
-        public IEnumerable<Task> ListAllByCriteria(string userName,string status, string priority)
-        {
-            return _entities.TaskSet.Where(task => (task.ResponsibleUser.UserName == userName) &&
-                                                   (task.Status.Contains(status) && task.Priority.Contains(priority)));
+            return _entities.TaskSet.Where(predicate);
         } 
 
         #endregion
     }
 }
+
+

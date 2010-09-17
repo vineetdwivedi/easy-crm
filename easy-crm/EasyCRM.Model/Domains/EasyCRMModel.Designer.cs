@@ -26,7 +26,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("EasyCRMModel", "AccountOpportunity", "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.Account), "Opportunity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Opportunity))]
 [assembly: EdmRelationshipAttribute("EasyCRMModel", "TaskAccount", "Task", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Task), "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EasyCRM.Model.Domains.Account))]
 [assembly: EdmRelationshipAttribute("EasyCRMModel", "TaskContact", "Task", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Task), "Contact", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EasyCRM.Model.Domains.Contact))]
-[assembly: EdmRelationshipAttribute("EasyCRMModel", "AccountContact", "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.Account), "Contact", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Contact))]
+[assembly: EdmRelationshipAttribute("EasyCRMModel", "AccountContact", "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EasyCRM.Model.Domains.Account), "Contact", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Contact))]
 
 #endregion
 

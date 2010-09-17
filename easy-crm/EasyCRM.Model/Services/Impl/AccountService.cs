@@ -2,6 +2,8 @@
 using EasyCRM.Model.Domains;
 using EasyCRM.Model.Repositories;
 using EasyCRM.Model.Repositories.Entity;
+using System.Linq.Expressions;
+using System;
 
 namespace EasyCRM.Model.Services.Impl
 {
@@ -103,6 +105,10 @@ namespace EasyCRM.Model.Services.Impl
             return _repository.ListAll();
         }
 
+        public IEnumerable<Account> ListAccountsByCriteria(Expression<Func<Account, bool>> predicate)
+        {
+            return _repository.ListAllByCriteria(predicate);
+        }
         #endregion
 
     }

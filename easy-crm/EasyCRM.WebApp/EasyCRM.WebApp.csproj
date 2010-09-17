@@ -101,6 +101,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>List.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -127,6 +130,9 @@
     <Compile Include="Services\ModelStateWrapper.cs" />
     <Compile Include="Services\Impl\MembershipService.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\AddTaskViewModel.cs" />
+    <Compile Include="ViewModels\ContactViewModel.cs" />
+    <Compile Include="ViewModels\AddContactViewModel.cs" />
     <Compile Include="ViewModels\LogOnViewModel.cs" />
     <Compile Include="ViewModels\SearchTaskViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
@@ -143,12 +149,27 @@
     <Content Include="Content\Images\success.png" />
     <Content Include="Content\Images\top_bg.png" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Account\AddContact.aspx" />
+    <Content Include="Views\Account\AddTask.aspx" />
+    <Content Include="Views\Account\Create.aspx" />
+    <Content Include="Views\Account\Delete.aspx" />
+    <Content Include="Views\Account\Details.aspx" />
+    <Content Include="Views\Account\Edit.aspx" />
+    <Content Include="Views\Account\Index.aspx" />
+    <Content Include="Views\Contact\AddTask.aspx" />
+    <Content Include="Views\Contact\Create.aspx" />
+    <Content Include="Views\Contact\Delete.aspx" />
+    <Content Include="Views\Contact\Details.aspx" />
+    <Content Include="Views\Contact\Edit.aspx" />
+    <Content Include="Views\Contact\Index.aspx" />
     <Content Include="Views\Error\NotFound.aspx" />
     <Content Include="Views\Error\Unknown.aspx" />
     <Content Include="Views\Sector\Create.aspx" />
     <Content Include="Views\Sector\Delete.aspx" />
     <Content Include="Views\Sector\Edit.aspx" />
     <Content Include="Views\Sector\Index.aspx" />
+    <Content Include="Views\Shared\EditorTemplates\Account.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\Contact.ascx" />
     <Content Include="Views\Shared\EditorTemplates\User.ascx" />
     <Content Include="Views\Shared\Success.aspx" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.ascx" />
