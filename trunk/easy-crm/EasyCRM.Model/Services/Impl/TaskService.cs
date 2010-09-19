@@ -14,7 +14,7 @@ namespace EasyCRM.Model.Services.Impl
 
 
         public TaskService(IValidationDictionary validationDictionary)
-            : this(validationDictionary, new EntityTaskRepository())
+            : this(validationDictionary, new TaskEntityRepository())
         { }
 
 

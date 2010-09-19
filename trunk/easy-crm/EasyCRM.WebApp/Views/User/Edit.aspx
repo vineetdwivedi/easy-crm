@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <% Html.EnableClientValidation(); %>
     <h2>
-        Edit Profile
+        <img src="../../Content/Images/edit.png" />Edit Profile
     </h2>
     <p>
         Passwords are required to be a minimum of <b>

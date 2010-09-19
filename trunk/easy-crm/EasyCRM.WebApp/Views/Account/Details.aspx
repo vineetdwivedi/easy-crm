@@ -10,8 +10,7 @@
         <%: Html.ActionLink("Add a Task", "AddTask", new { id = Model.Id })%>
         |
         <%: Html.ActionLink("Add a Contact", "AddContact", new { id = Model.Id })%>
-        |
-        <%: Html.ActionLink("Add an Opportunity", "AddOpportunity", new { id = Model.Id })%></p>
+    </p>
     <fieldset>
         <legend>Account Information</legend>
         <table class="display-table">

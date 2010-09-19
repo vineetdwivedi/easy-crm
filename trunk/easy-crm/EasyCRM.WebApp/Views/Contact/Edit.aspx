@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <% Html.EnableClientValidation();%>
     <h2>
-        Edit Contact</h2>
+        <img src="../../Content/Images/edit.png" />Edit Contact</h2>
     <% using (Html.BeginForm())
        {%>
     <%: Html.ValidationSummary(true) %>

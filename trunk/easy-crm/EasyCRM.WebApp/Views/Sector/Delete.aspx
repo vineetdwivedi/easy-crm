@@ -6,7 +6,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Delete Sector</h2>
+    <h2>
+        <img src="../../Content/Images/delete.png" />Delete Sector</h2>
 
     <h3>Are you sure you want to delete this?</h3>
     <fieldset>

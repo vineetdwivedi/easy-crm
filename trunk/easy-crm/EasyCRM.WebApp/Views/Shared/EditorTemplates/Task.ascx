@@ -15,7 +15,7 @@
             <%: Html.LabelFor(model => model.Status) %>
         </td>
         <td class="editor-field">
-            <%: Html.DropDownList("Status", ViewData["Statuses"] as SelectList) %>
+            <%: Html.DropDownListFor(model => model.Status, ViewData["Statuses"] as SelectList)%>
             <%: Html.ValidationMessageFor(model => model.Status) %>
         </td>
     </tr>
@@ -51,7 +51,7 @@
             <%: Html.LabelFor(model => model.Priority) %>
         </td>
         <td class="editor-field">
-            <%: Html.DropDownList("Priority", ViewData["Priorities"] as SelectList) %>
+            <%: Html.DropDownListFor(model => model.Priority, ViewData["Priorities"] as SelectList)%>
             <%: Html.ValidationMessageFor(model => model.Priority) %>
         </td>
     </tr>

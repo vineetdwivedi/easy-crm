@@ -15,7 +15,7 @@ namespace EasyCRM.Model.Services.Impl
 
 
         public ContactService(IValidationDictionary validationDictionary)
-            : this(validationDictionary, new EntityContactRepository())
+            : this(validationDictionary, new ContactEntityRepository())
         { }
 
 
@@ -29,13 +29,13 @@ namespace EasyCRM.Model.Services.Impl
         public bool ValidateContact(Contact contactToValidate)
         {
             if (contactToValidate.FirstName.Trim().Length == 0)
-                _validationDictionary.AddError("FirstName", "First name is required.");
+                _validationDictionary.AddError("Contact.FirstName", "First name is required.");
             if (contactToValidate.LastName.Trim().Length == 0)
-                _validationDictionary.AddError("LastName", "Last name is required.");
+                _validationDictionary.AddError("Contact.LastName", "Last name is required.");
             if (contactToValidate.Address.Trim().Length == 0)
-                _validationDictionary.AddError("Address", "Address is required.");
+                _validationDictionary.AddError("Contact.Address", "Address is required.");
             if (contactToValidate.Email.Length > 0 && !Regex.IsMatch(contactToValidate.Email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
-                _validationDictionary.AddError("Email", "Invalid email address.");
+                _validationDictionary.AddError("Contact.Email", "Invalid email address.");
             return _validationDictionary.IsValid;
         }
 

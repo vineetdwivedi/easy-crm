@@ -8,7 +8,8 @@
     
     <% Html.EnableClientValidation(); %>
 
-    <h2>Edit</h2>
+    <h2>
+        <img src="../../Content/Images/edit.png" />Edit Sector</h2>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>

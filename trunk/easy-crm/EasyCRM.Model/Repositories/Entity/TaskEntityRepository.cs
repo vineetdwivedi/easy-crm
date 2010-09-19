@@ -6,7 +6,7 @@ using System;
 
 namespace EasyCRM.Model.Repositories.Entity
 {
-    public class EntityTaskRepository : ITaskRepository
+    public class TaskEntityRepository : ITaskRepository
     {
         private EasyCRMDBEntities _entities = EntityRepository.GetEntities();
 

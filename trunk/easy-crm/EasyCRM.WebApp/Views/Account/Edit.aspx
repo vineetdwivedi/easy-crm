@@ -4,9 +4,9 @@
     Edit Account
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
+    <% Html.EnableClientValidation(); %>
     <h2>
-        Edit Account</h2>
+        <img src="../../Content/Images/edit.png" />Edit Account</h2>
     <% using (Html.BeginForm())
        {%>
     <%: Html.ValidationSummary(true) %>

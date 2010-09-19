@@ -8,7 +8,8 @@
 
     <% Html.EnableClientValidation(); %>
 
-    <h2>Edit Task</h2>
+    <h2>
+        <img src="../../Content/Images/edit.png" />Edit Task</h2>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true,"The modification of the task was unsuccessful. Please, correct the errors and try again.") %>
