@@ -13,7 +13,7 @@ namespace EasyCRM.Model.Services.Impl
 
 
         public UserService(IValidationDictionary validationDictionary)
-            : this(validationDictionary, new EntityUserRepository())
+            : this(validationDictionary, new UserEntityRepository())
         { }
 
 

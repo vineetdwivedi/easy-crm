@@ -44,17 +44,17 @@
            { %>
         <tr>
             <td>
-                <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %>
+                <%: Html.ActionLinkWithImage("Edit", "Edit", "../../Content/Images/edit.png", new { id=item.Id }) %>
                 |
                 <%: Html.ActionLink("Details", "Details", new { id=item.Id })%>
                 |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
+                <%: Html.ActionLinkWithImage("Delete", "Delete", "../../Content/Images/delete.png", new { id = item.Id })%>
             </td>
             <td>
                 <%: item.Id %>
             </td>
             <td>
-                <%: item.Subject %>
+                <%: Html.Truncate(item.Subject, 30) %>
             </td>
             <td>
                 <%: item.Status %>

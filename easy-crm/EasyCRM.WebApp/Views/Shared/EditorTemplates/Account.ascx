@@ -14,7 +14,7 @@
             <%: Html.LabelFor(model => model.Type) %>
         </td>
         <td class="editor-field">
-            <%: Html.DropDownList("Type", ViewData["Types"] as SelectList) %>
+            <%: Html.DropDownListFor(model => model.Type, ViewData["Types"] as SelectList) %>
             <%: Html.ValidationMessageFor(model => model.Type) %>
         </td>
     </tr>

@@ -42,7 +42,7 @@ namespace EasyCRM.WebApp.Controllers
         // POST: /Sector/Create
 
         [HttpPost]
-        public ActionResult Create([Bind(Exclude = "ID")] IndustrialSector industrialSector)
+        public ActionResult Create([Bind(Exclude = "Id")] IndustrialSector industrialSector)
         {
             if (!_sectorService.CreateIndustrialSector(industrialSector))
             {

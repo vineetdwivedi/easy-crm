@@ -72,13 +72,13 @@
       <DependentUpon>EasyCRMModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Entity\EntityIndustrialSectorRepository.cs" />
-    <Compile Include="Repositories\Entity\EntityOpportunityRepository.cs" />
-    <Compile Include="Repositories\Entity\EntityAccountRepository.cs" />
+    <Compile Include="Repositories\Entity\IndustrialSectorEntityRepository.cs" />
+    <Compile Include="Repositories\Entity\OpportunityEntityRepository.cs" />
+    <Compile Include="Repositories\Entity\AccountEntityRepository.cs" />
     <Compile Include="Repositories\Entity\EntityRepository.cs" />
-    <Compile Include="Repositories\Entity\EntityTaskRepository.cs" />
-    <Compile Include="Repositories\Entity\EntityContactRepository.cs" />
-    <Compile Include="Repositories\Entity\EntityUserRepository.cs" />
+    <Compile Include="Repositories\Entity\TaskEntityRepository.cs" />
+    <Compile Include="Repositories\Entity\ContactEntityRepository.cs" />
+    <Compile Include="Repositories\Entity\UserEntityRepository.cs" />
     <Compile Include="Repositories\IIndustrialSectorRepository.cs" />
     <Compile Include="Repositories\IOpportunityRepository.cs" />
     <Compile Include="Repositories\IAccountRepository.cs" />

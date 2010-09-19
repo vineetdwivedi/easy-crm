@@ -103,6 +103,9 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\OpportunityController.cs" />
+    <Compile Include="Helpers\HtmlExtensions.cs" />
+    <Compile Include="Helpers\LinkExtensions.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -133,19 +136,24 @@
     <Compile Include="ViewModels\AddTaskViewModel.cs" />
     <Compile Include="ViewModels\ContactViewModel.cs" />
     <Compile Include="ViewModels\AddContactViewModel.cs" />
+    <Compile Include="ViewModels\SearchOpportunityViewModel.cs" />
+    <Compile Include="ViewModels\OpportunityViewModel.cs" />
     <Compile Include="ViewModels\LogOnViewModel.cs" />
     <Compile Include="ViewModels\SearchTaskViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Images\user.png" />
     <Content Include="Content\Images\bottom_bg.png" />
     <Content Include="Content\Images\car.png" />
+    <Content Include="Content\Images\contact.png" />
+    <Content Include="Content\Images\delete.png" />
+    <Content Include="Content\Images\edit.png" />
     <Content Include="Content\Images\en.png" />
     <Content Include="Content\Images\error.png" />
     <Content Include="Content\Images\fr.png" />
     <Content Include="Content\Images\home.png" />
     <Content Include="Content\Images\key.png" />
+    <Content Include="Content\Images\search.png" />
     <Content Include="Content\Images\success.png" />
     <Content Include="Content\Images\top_bg.png" />
     <Content Include="Global.asax" />
@@ -156,20 +164,31 @@
     <Content Include="Views\Account\Details.aspx" />
     <Content Include="Views\Account\Edit.aspx" />
     <Content Include="Views\Account\Index.aspx" />
+    <Content Include="Views\Account\NotFound.aspx" />
     <Content Include="Views\Contact\AddTask.aspx" />
     <Content Include="Views\Contact\Create.aspx" />
     <Content Include="Views\Contact\Delete.aspx" />
     <Content Include="Views\Contact\Details.aspx" />
     <Content Include="Views\Contact\Edit.aspx" />
     <Content Include="Views\Contact\Index.aspx" />
+    <Content Include="Views\Contact\NotFound.aspx" />
     <Content Include="Views\Error\NotFound.aspx" />
     <Content Include="Views\Error\Unknown.aspx" />
+    <Content Include="Views\Opportunity\Create.aspx" />
+    <Content Include="Views\Opportunity\Delete.aspx" />
+    <Content Include="Views\Opportunity\Details.aspx" />
+    <Content Include="Views\Opportunity\Edit.aspx" />
+    <Content Include="Views\Opportunity\Index.aspx" />
+    <Content Include="Views\Opportunity\NotFound.aspx" />
+    <Content Include="Views\Opportunity\Search.aspx" />
     <Content Include="Views\Sector\Create.aspx" />
     <Content Include="Views\Sector\Delete.aspx" />
     <Content Include="Views\Sector\Edit.aspx" />
     <Content Include="Views\Sector\Index.aspx" />
+    <Content Include="Views\Sector\NotFound.aspx" />
     <Content Include="Views\Shared\EditorTemplates\Account.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Contact.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\Opportunity.ascx" />
     <Content Include="Views\Shared\EditorTemplates\User.ascx" />
     <Content Include="Views\Shared\Success.aspx" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.ascx" />
@@ -179,8 +198,10 @@
     <Content Include="Views\Task\Details.aspx" />
     <Content Include="Views\Task\Edit.aspx" />
     <Content Include="Views\Task\Index.aspx" />
+    <Content Include="Views\Task\NotFound.aspx" />
     <Content Include="Views\Task\Search.aspx" />
     <Content Include="Views\User\Edit.aspx" />
+    <Content Include="Views\User\NotFound.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -12,7 +12,7 @@ namespace EasyCRM.Model.Services.Impl
 
 
         public IndustrialSectorService(IValidationDictionary validationDictionary)
-            : this(validationDictionary, new EntityIndustrialSectorRepository())
+            : this(validationDictionary, new IndustrialSectorEntityRepository())
         { }
 
 

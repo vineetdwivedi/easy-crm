@@ -78,8 +78,7 @@ namespace EasyCRM.WebApp.Controllers
             var sectors = _sectorService.ListIndustrialSectors();
             var viewModel = new AccountViewModel
             {
-                Account = new Account(),
-                Sectors = new SelectList(sectors, "Id", "Sector", 1)
+                Sectors = new SelectList(sectors, "Id", "Sector")
             };
 
             return View(viewModel);
@@ -93,7 +92,8 @@ namespace EasyCRM.WebApp.Controllers
         {
             string userName = this.User.Identity.Name;
             int sectorId = Int32.Parse(Request.Form["Account.SectorId"]);/*we prefix, as the sector is inside the Account editor*/
-                                                                         /*and isn't directly bound as field of the Account*/
+            /*and isn't directly bound as field of the Account*/
+
             //we get the owner the account
             User owner = _userService.GetUser(userName);
 
@@ -102,15 +102,13 @@ namespace EasyCRM.WebApp.Controllers
 
             account.Owner = owner;
             account.IndustrialSector = sector;
-            owner.Accounts.Add(account); //maybe useless, as EF takes care of that
 
             if (!_accountService.CreateAccount(account))
             {
                 var sectors = _sectorService.ListIndustrialSectors();
-                var viewModel = new AccountViewModel
+                var viewModel = new AccountViewModel(account)
                 {
-                    Account = account,
-                    Sectors = new SelectList(sectors, "Id", "Sector", 1)
+                    Sectors = new SelectList(sectors, "Id", "Sector")
                 };
 
                 return View(viewModel);
@@ -134,9 +132,8 @@ namespace EasyCRM.WebApp.Controllers
             }
 
             var sectors = _sectorService.ListIndustrialSectors();
-            var viewModel = new AccountViewModel
+            var viewModel = new AccountViewModel(account)
             {
-                Account = account,
                 Sectors = new SelectList(sectors, "Id", "Sector", account.IndustrialSector.Id)
             };
 
@@ -161,10 +158,10 @@ namespace EasyCRM.WebApp.Controllers
 
             // we update the account with form posted values
             TryUpdateModel(account, "Account" /*prefix, as the account is inside the Account editor*/);
-
+            
             int sectorId = Int32.Parse(Request.Form["Account.SectorId"]);/*we prefix, as the sector is inside the Account editor*/
 
-            //if we account sector has changed, we update it in the model
+            //if the account sector has changed, we update it in the model
             if (sectorId != account.IndustrialSector.Id)
             {
                 account.IndustrialSector = _sectorService.GetIndustrialSector(sectorId);
@@ -173,9 +170,8 @@ namespace EasyCRM.WebApp.Controllers
             if (!_accountService.EditAccount(account))
             {
                 var sectors = _sectorService.ListIndustrialSectors();
-                var viewModel = new AccountViewModel
+                var viewModel = new AccountViewModel(account)
                 {
-                    Account = account,
                     Sectors = new SelectList(sectors, "Id", "Sector", account.IndustrialSector.Id)
                 };
 
@@ -219,13 +215,14 @@ namespace EasyCRM.WebApp.Controllers
         public ActionResult AddTask(int id /*id of the account*/)
         {
             string userName = this.User.Identity.Name;
-            
+
             //we retrieve from the db the tasks of the user, that haven't been assigned to an account yet
             var tasks = _taskService.ListTasksByCriteria(task => (task.ResponsibleUser.UserName == userName) &&
                                                                  (task.Account == null));
             var viewModel = new AddTaskViewModel
             {
-                Tasks = new SelectList(tasks, "Id", "Subject",1)
+                AccountId = id,
+                Tasks = new SelectList(tasks, "Id", "Subject", 1)
             };
 
             return View(viewModel);
@@ -243,7 +240,7 @@ namespace EasyCRM.WebApp.Controllers
             Task task = _taskService.GetTask(taskId);
             //we retrieve the account to add the task to
             Account account = _accountService.GetAccount(id);
-            
+
             account.Tasks.Add(task);
 
             if (!_accountService.EditAccount(account))
@@ -256,6 +253,7 @@ namespace EasyCRM.WebApp.Controllers
                                                                   (t.Account == null));
                 var viewModel = new AddTaskViewModel
                 {
+                    AccountId = id,
                     Tasks = new SelectList(tasks, "Id", "Subject", 1)
                 };
 
@@ -277,6 +275,7 @@ namespace EasyCRM.WebApp.Controllers
                                                                           (contact.Account == null));
             var viewModel = new AddContactViewModel
             {
+                AccountId = id,
                 Contacts = new SelectList(tasks, "Id", "Email", 1)
             };
 
@@ -308,6 +307,7 @@ namespace EasyCRM.WebApp.Controllers
                                                                            (c.Account == null));
                 var viewModel = new AddContactViewModel
                 {
+                    AccountId = id,
                     Contacts = new SelectList(contacts, "Id", "Email", 1)
                 };
 

@@ -2,6 +2,8 @@
 using EasyCRM.Model.Domains;
 using EasyCRM.Model.Repositories;
 using EasyCRM.Model.Repositories.Entity;
+using System.Linq.Expressions;
+using System;
 
 namespace EasyCRM.Model.Services.Impl
 {
@@ -12,7 +14,7 @@ namespace EasyCRM.Model.Services.Impl
 
 
         public OpportunityService(IValidationDictionary validationDictionary)
-            : this(validationDictionary, new EntityOpportunityRepository())
+            : this(validationDictionary, new OpportunityEntityRepository())
         { }
 
 
@@ -26,9 +28,9 @@ namespace EasyCRM.Model.Services.Impl
         public bool ValidateOpportunity(Opportunity opportunityToValidate)
         {
             if (opportunityToValidate.Amount <= 0)
-                _validationDictionary.AddError("Amount", "Amount must be greater than 0.");
+                _validationDictionary.AddError("Opportunity.Amount", "Amount must be greater than 0.");
             if (opportunityToValidate.Description.Trim().Length == 0)
-                _validationDictionary.AddError("Description", "Description is required.");
+                _validationDictionary.AddError("Opportunity.Description", "Description is required.");
             return _validationDictionary.IsValid;
         }
 
@@ -101,6 +103,10 @@ namespace EasyCRM.Model.Services.Impl
             return _repository.ListAll();
         }
 
+        public IEnumerable<Opportunity> ListOpportunitiesByCriteria(Expression<Func<Opportunity, bool>> predicate)
+        {
+            return _repository.ListAllByCriteria(predicate);
+        }
         #endregion
 
     }

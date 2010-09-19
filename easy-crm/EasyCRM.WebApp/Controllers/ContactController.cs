@@ -79,7 +79,6 @@ namespace EasyCRM.WebApp.Controllers
             User responsibleUser = _userService.GetUser(userName);
 
             contact.ResponsibleUser = responsibleUser;
-            responsibleUser.Contacts.Add(contact); //maybe useless, as EF takes care of that
 
             if (!_contactService.CreateContact(contact))
             {
@@ -172,6 +171,7 @@ namespace EasyCRM.WebApp.Controllers
                                                                  (task.Contact == null));
             var viewModel = new AddTaskViewModel
             {
+                AccountId = id,
                 Tasks = new SelectList(tasks, "Id", "Subject", 1)
             };
 
@@ -203,6 +203,7 @@ namespace EasyCRM.WebApp.Controllers
                                                                   (t.Contact == null));
                 var viewModel = new AddTaskViewModel
                 {
+                    AccountId = id,
                     Tasks = new SelectList(tasks, "Id", "Subject", 1)
                 };
 

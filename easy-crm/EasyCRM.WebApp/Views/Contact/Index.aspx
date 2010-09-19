@@ -39,11 +39,11 @@
            { %>
         <tr>
             <td>
-                <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %>
+                <%: Html.ActionLinkWithImage("Edit", "Edit", "../../Content/Images/edit.png", new { id=item.Id }) %>
                 |
                 <%: Html.ActionLink("Details", "Details", new { id=item.Id })%>
                 |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
+                <%: Html.ActionLinkWithImage("Delete", "Delete", "../../Content/Images/delete.png", new { id = item.Id })%>
             </td>
             <td>
                 <%: item.Id %>
@@ -55,13 +55,13 @@
                 <%: item.FirstName %>
             </td>
             <td>
-                <%: item.Address %>
+                <%: Html.Truncate(item.Address, 30) %>
             </td>
             <td>
                 <%: item.Status %>
             </td>
             <td>
-                <%: item.Email %>
+                <%: Html.Truncate(item.Email, 30) %>
             </td>
         </tr>
         <% } %>

@@ -12,7 +12,7 @@ body
     margin: 0;
     padding: 0;
     color: #696969;
-    height:100%
+    height: 100%;
 }
 
 a:link
@@ -34,6 +34,13 @@ a:active
     color: #12eb87;
 }
 
+a img
+{
+    border: 0px;
+    margin-left:2px;
+    margin-right:2px;
+}
+
 p, ul
 {
     margin-bottom: 20px;
@@ -45,7 +52,7 @@ p, ul
 h1, h2, h3, h4, h5, h6
 {
     font-size: 1.5em;
-    color: #000;
+    color: #454545;
     font-family: Georgia, Arial, Helvetica, sans-serif;
 }
 
@@ -111,23 +118,11 @@ page width. Or, you can specify an exact pixel width. */
     font-family: Georgia,Verdana,Arial;
 }
 
-#header h2
+#header h1:hover
 {
-    text-indent:-5000px;
-    font-family: Georgia,Verdana,Arial;
-    font-style: normal;
-    font-variant: normal;
-    font-size: 15px;
-    line-height: normal;
-    -x-system-font: none;
-    font-weight: normal;
-    padding-top: 0px;
-    padding-right: 0pt;
-    padding-bottom: 0pt;
-    padding-left: 100px;
-    margin-top: -10px;
-    display:inline;
+    text-shadow: 0px 0px 40px #b3d53c;
 }
+
 
 #main
 {
@@ -135,6 +130,9 @@ page width. Or, you can specify an exact pixel width. */
     background-color: #fff;
     margin-bottom: 30px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+        -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
 #footer
@@ -165,6 +163,13 @@ ul#menu li
     list-style: none;
 }
 
+ul#menu li:hover
+{
+    display: inline;
+    list-style: none;
+    position:relative;
+    top:-5px;
+}
 ul#menu li#greeting
 {
     padding: 10px 20px;
@@ -176,15 +181,15 @@ ul#menu li#greeting
 
 ul#menu li a
 {
-    padding: 5px 10px;
+    padding: 10px 20px;
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
-    background-color: #e8eef4;
-    color: #034af3;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
+    background-color: #edf8d0;
+    color: #003300;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
 ul#menu li a:hover
@@ -204,6 +209,7 @@ ul#menu li.selected a
     background-color: #fff;
     color: #000;
 }
+
 
 /* FORM LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
@@ -229,33 +235,33 @@ legend
 
 input[type="text"]
 {
-	width: 200px;
-	height: 15px;
-	border: 1px solid #ccc;
-	padding: 5px;
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
-	border-radius: 7px;
+    width: 200px;
+    height: 15px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
 }
 
 input[type="password"]
 {
-	width: 200px;
-	height: 15px;
-	border: 1px solid #ccc;
-	padding: 5px;
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
-	border-radius: 7px;
+    width: 200px;
+    height: 15px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
 }
 
 textarea
 {
-	border: 1px solid #ccc;
-	padding: 5px;
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
-	border-radius: 7px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
 }
 
 /* TABLE
@@ -263,22 +269,24 @@ textarea
 
 table
 {
-    border: solid 1px #e8eef4;
+    border: solid 1px #edf8d0;
     border-collapse: collapse;
 }
 
 table td
 {
     padding: 5px;
-    border: solid 1px #e8eef4;
+    border: solid 1px #edf8d0;
 }
 
 table th
 {
+    margin-left: 1px;
+    margin-right: 1px;
     padding: 6px 5px;
-    text-align: left;
-    background-color: #e8eef4;
-    border: solid 1px #e8eef4;
+    text-align: center;
+    background-color: #edf8d0;
+    border: solid 1px #edf8d0;
 }
 
 /* MISC  
@@ -291,32 +299,32 @@ table th
 .error
 {
     color: Red;
-
 }
 
 .infobox
 {
-    vertical-align:middle;   
+    vertical-align: middle;
     background-color: #eeffbb;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
-    border-radius: 6px;   
-    border: 2px solid #a1d409; 
+    border-radius: 6px;
+    border: 2px solid #a1d409;
 }
 
 .errorbox
 {
-    font-weight:bold;
+    font-weight: bold;
     border: 2px solid #red;
+    background-color: #ffeeee;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
-    border-radius: 6px;    
+    border-radius: 6px;
 }
 
 .green
 {
-    color:#a1d409;
-    font-weight:bold;    
+    color: #a1d409;
+    font-weight: bold;
 }
 
 #menucontainer
@@ -397,14 +405,14 @@ div#title
 
 .display-label, .editor-label
 {
-    text-align:right;
+    text-align: right;
     font-weight: bold;
-    background-color:#edf8d0;
+    background-color: #edf8d0;
 }
 
 .display-field, .editor-field
 {
-    text-align:left;
+    text-align: left;
 }
 
 .editor-table, .display-table

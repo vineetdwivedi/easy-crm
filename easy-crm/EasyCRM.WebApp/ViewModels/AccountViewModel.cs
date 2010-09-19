@@ -17,11 +17,17 @@ namespace EasyCRM.WebApp.ViewModels
         public SelectList Sectors { get; set; }
 
         public AccountViewModel()
+            : this(new Account())
         {
-            //creating the elements for account type dropdown
+        }
+
+        public AccountViewModel(Account account)
+        {
+            //creating the elements for account type dropdown list
             var types = Enum.GetNames(typeof(AccountType));
 
-            Types = new SelectList(types, "");
+            Account = account;
+            Types = new SelectList(types, Account.Type);
         }
     }
 }

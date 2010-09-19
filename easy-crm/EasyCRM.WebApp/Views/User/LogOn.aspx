@@ -4,6 +4,7 @@
     Log On
 </asp:Content>
 <asp:Content ID="loginContent" ContentPlaceHolderID="MainContent" runat="server">
+    <% Html.EnableClientValidation(); %>
     <h2>
         Log On</h2>
     <p>
@@ -17,7 +18,7 @@
     <div>
         <fieldset>
             <legend>User Information</legend>
-            <table>
+            <table class="editor-table">
                 <tr>
                     <td class="editor-label">
                         <%: Html.LabelFor(m => m.UserName) %>

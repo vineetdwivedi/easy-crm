@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using EasyCRM.Model.Domains;
+using System.Linq.Expressions;
+using System;
 
 namespace EasyCRM.Model.Services
 {
@@ -10,6 +12,7 @@ namespace EasyCRM.Model.Services
         bool EditOpportunity(Opportunity opportunityToEdit);
         Opportunity GetOpportunity(int id);
         IEnumerable<Opportunity> ListOpportunities();
+        IEnumerable<Opportunity> ListOpportunitiesByCriteria(Expression<Func<Opportunity,bool>> predicate);
 
     }
 }

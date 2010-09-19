@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EasyCRM.Model.Domains;
+using System.Linq.Expressions;
+using System;
 
 namespace EasyCRM.Model.Repositories.Entity
 {
-    public class EntityOpportunityRepository : IOpportunityRepository
+    public class OpportunityEntityRepository : IOpportunityRepository
     {
         private EasyCRMDBEntities _entities = EntityRepository.GetEntities();
 
@@ -42,7 +44,12 @@ namespace EasyCRM.Model.Repositories.Entity
         public IEnumerable<Opportunity> ListAll()
         {
             return _entities.OpportunitySet.ToList();
-        } 
+        }
+
+        public IEnumerable<Opportunity> ListAllByCriteria(Expression<Func<Opportunity, bool>> predicate)
+        {
+            return _entities.OpportunitySet.Where(predicate);
+        }
         #endregion
     }
 }

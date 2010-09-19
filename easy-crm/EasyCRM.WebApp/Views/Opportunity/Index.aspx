@@ -1,16 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<EasyCRM.Model.Domains.IndustrialSector>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<EasyCRM.Model.Domains.Opportunity>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    All Sectors
+    All Opportunities
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
-        All Industrial Sectors</h2>
+        All Opportunities</h2>
     <p>
-        Number of Sectors Found: <b>
+        Number of Opportunities Found: <b>
             <%: Model.Count() %></b></p>
     <p>
         <%: Html.ActionLink("Create New", "Create") %>
+        |
+        <%: Html.ActionLink("Search ...", "Search") %>
     </p>
     <table>
         <tr>
@@ -20,7 +22,13 @@
                 Id
             </th>
             <th>
-                Sector
+                Amount
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Description
             </th>
         </tr>
         <% foreach (var item in Model)
@@ -29,13 +37,21 @@
             <td>
                 <%: Html.ActionLinkWithImage("Edit", "Edit", "../../Content/Images/edit.png", new { id=item.Id }) %>
                 |
+                <%: Html.ActionLink("Details", "Details", new { id=item.Id })%>
+                |
                 <%: Html.ActionLinkWithImage("Delete", "Delete", "../../Content/Images/delete.png", new { id = item.Id })%>
             </td>
             <td>
                 <%: item.Id %>
             </td>
             <td>
-                <%: item.Sector %>
+                <%: String.Format("{0:F}", item.Amount) %>
+            </td>
+            <td>
+                <%: item.Status %>
+            </td>
+            <td>
+                <%: Html.Truncate(item.Description, 30) %>
             </td>
         </tr>
         <% } %>

@@ -6,7 +6,7 @@ using System;
 
 namespace EasyCRM.Model.Repositories.Entity
 {
-    public class EntityContactRepository : IContactRepository
+    public class ContactEntityRepository : IContactRepository
     {
         private EasyCRMDBEntities _entities = EntityRepository.GetEntities();
 

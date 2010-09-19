@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using EasyCRM.Model.Domains;
 
 namespace EasyCRM.Model.Repositories
@@ -10,6 +12,6 @@ namespace EasyCRM.Model.Repositories
         Opportunity Update(Opportunity opportunityToUpdate);
         Opportunity Get(int id);
         IEnumerable<Opportunity> ListAll();
-
+        IEnumerable<Opportunity> ListAllByCriteria(Expression<Func<Opportunity, bool>> predicate);
     }
 }

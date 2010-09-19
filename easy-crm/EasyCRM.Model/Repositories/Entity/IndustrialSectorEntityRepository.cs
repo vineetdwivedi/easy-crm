@@ -4,7 +4,7 @@ using EasyCRM.Model.Domains;
 
 namespace EasyCRM.Model.Repositories.Entity
 {
-    public class EntityIndustrialSectorRepository : IIndustrialSectorRepository
+    public class IndustrialSectorEntityRepository : IIndustrialSectorRepository
     {
         private EasyCRMDBEntities _entities = EntityRepository.GetEntities();
 

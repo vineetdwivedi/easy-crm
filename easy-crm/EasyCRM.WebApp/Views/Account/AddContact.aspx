@@ -11,10 +11,20 @@
     <%: Html.ValidationSummary(true) %>
     <fieldset>
         <legend>Contacts</legend>
+        <% if (Model.Contacts.Count() == 0)
+           { %>
+        <p>
+            All your contacts have already been assigned to an account.</p>
+        <div>
+            <%: Html.ActionLink("Create a new Contact", "Create","Contact") %>
+        </div>
+        <% }
+           else
+           { %>
         <table class="editor-table">
             <tr>
                 <td class="editor-label">
-                    <%: Html.LabelFor(model => model.ContactId) %>
+                    <%: Html.LabelFor(model => model.ContactId)%>
                 </td>
                 <td class="editor-field">
                     <%: Html.DropDownListFor(model => model.ContactId, Model.Contacts)%>
@@ -24,9 +34,10 @@
         <p>
             <input type="submit" value="Add" />
         </p>
+        <%} %>
     </fieldset>
     <% } %>
     <div>
-        <%: Html.ActionLink("Back to all Accounts", "Index") %>
+        <%: Html.ActionLink("Back to Account", "Details", new  { id = Model.AccountId})%>
     </div>
 </asp:Content>
