@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using EasyCRM.Model.Domains;
 using EasyCRM.Model.Repositories;
 using EasyCRM.Model.Repositories.Entity;
-using System.Linq.Expressions;
-using System;
 
 namespace EasyCRM.Model.Services.Impl
 {

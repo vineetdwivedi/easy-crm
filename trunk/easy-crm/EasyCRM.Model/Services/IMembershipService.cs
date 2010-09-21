@@ -1,7 +1,7 @@
 ﻿using System.Web.Security;
 using EasyCRM.Model.Domains;
 
-namespace EasyCRM.WebApp.Services
+namespace EasyCRM.Model.Services
 {
     public interface IMembershipService
     {

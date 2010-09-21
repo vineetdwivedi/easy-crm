@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Web.Mvc;
 using System.Web.Security;
 using EasyCRM.Model.Domains;
@@ -7,8 +8,6 @@ using EasyCRM.Model.Services.Impl;
 using EasyCRM.WebApp.Services;
 using EasyCRM.WebApp.Services.Impl;
 using EasyCRM.WebApp.ViewModels;
-using System.Web.UI;
-using System.Net;
 
 namespace EasyCRM.WebApp.Controllers
 {

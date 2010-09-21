@@ -128,10 +128,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Services\IFormsAuthenticationService.cs" />
-    <Compile Include="Services\IMembershipService.cs" />
     <Compile Include="Services\Impl\FormsAuthenticationService.cs" />
     <Compile Include="Services\ModelStateWrapper.cs" />
-    <Compile Include="Services\Impl\MembershipService.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AddTaskViewModel.cs" />
     <Compile Include="ViewModels\ContactViewModel.cs" />

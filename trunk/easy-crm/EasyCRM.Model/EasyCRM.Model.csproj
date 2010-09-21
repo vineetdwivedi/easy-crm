@@ -48,10 +48,13 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -86,13 +89,15 @@
     <Compile Include="Repositories\ITaskRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Services\IIndustrialSectorService.cs" />
+    <Compile Include="Services\IMembershipService.cs" />
     <Compile Include="Services\Impl\AccountService.cs" />
+    <Compile Include="Services\Impl\MembershipService.cs" />
     <Compile Include="Services\Impl\TaskService.cs" />
     <Compile Include="Services\Impl\IndustrialSectorService.cs" />
     <Compile Include="Services\Impl\OpportunityService.cs" />
     <Compile Include="Services\Impl\UserService.cs" />
     <Compile Include="Services\Impl\ContactService.cs" />
-    <Compile Include="Services\Impl\SimpleModelStateWrapper.cs" />
+    <Compile Include="Services\SimpleModelStateWrapper.cs" />
     <Compile Include="Services\IOpportunityService.cs" />
     <Compile Include="Services\IAccountService.cs" />
     <Compile Include="Services\ITaskService.cs" />
@@ -147,7 +152,6 @@
   <ItemGroup>
     <Content Include="Domains\EasyCRMDB.edmx.sql" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

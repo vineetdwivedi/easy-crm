@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EasyCRM.Model")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Model for both EasyCRM web and windows applications.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Tinesoft Corporation")]
 [assembly: AssemblyProduct("EasyCRM.Model")]
 [assembly: AssemblyCopyright("Copyright ©  2010")]
 [assembly: AssemblyTrademark("")]
