@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Web.Security;
-using EasyCRM.Model.Services.Impl;
-using EasyCRM.Model.Services;
 using EasyCRM.Model.Domains;
 
-namespace EasyCRM.WebApp.Services.Impl
+namespace EasyCRM.Model.Services.Impl
 {
     public class MembershipService : IMembershipService
     {
