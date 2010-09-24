@@ -27,6 +27,9 @@ namespace EasyCRM.Model.Services.Impl
 
         public bool ValidateOpportunity(Opportunity opportunityToValidate)
         {
+            //convert null values to empty strings
+            opportunityToValidate.Description = opportunityToValidate.Description ?? "";
+
             if (opportunityToValidate.Amount <= 0)
                 _validationDictionary.AddError("Opportunity.Amount", "Amount must be greater than 0.");
             if (opportunityToValidate.Description.Trim().Length == 0)

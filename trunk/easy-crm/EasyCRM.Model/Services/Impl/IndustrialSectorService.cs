@@ -25,6 +25,8 @@ namespace EasyCRM.Model.Services.Impl
 
         public bool ValidateIndustrialSector(IndustrialSector sectorToValidate)
         {
+            //convert null values to empty strings
+            sectorToValidate.Sector = sectorToValidate.Sector ?? "";
 
             if (sectorToValidate.Sector.Trim().Length == 0)
                 _validationDictionary.AddError("Sector", "Sector is required.");

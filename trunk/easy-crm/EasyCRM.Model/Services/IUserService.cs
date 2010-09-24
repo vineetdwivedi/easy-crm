@@ -5,9 +5,9 @@ namespace EasyCRM.Model.Services
 {
     public interface IUserService
     {
-        //we need this, because this service can be coupled with a other
-        //( eg: in the mvc app, it's coupled with the MembershipService
-        void addError(string key, string errorMessage);
+        //we need this, because this service can be coupled with an other
+        //( eg:  the MembershipService
+        void AddError(string key, string errorMessage);
 
         bool CreateUser(User userToCreate);
         bool DeleteUser(User userToDelete);

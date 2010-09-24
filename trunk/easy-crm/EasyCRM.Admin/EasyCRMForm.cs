@@ -2,11 +2,14 @@
 using EasyCRM.Model.Services;
 using EasyCRM.Model.Services.Impl;
 using System.Collections.Generic;
+using EasyCRM.Model.Domains;
 
 namespace EasyCRM.Admin
 {
     public partial class EasyCRMForm : Form
-    {   
+    {
+        private static EasyCRMForm _instance = null;
+
         //services
         private IMembershipService _membershipService;
         private IUserService _userService;
@@ -21,13 +24,13 @@ namespace EasyCRM.Admin
         private Dictionary<string, string> _taskModelState = new Dictionary<string, string>();
         private Dictionary<string, string> _sectorModelState = new Dictionary<string, string>();
 
-        public EasyCRMForm()
+        private EasyCRMForm()
         {
             InitializeComponent();
-            InitializeServices();            
+            InitializeServices();
 
         }
-        
+
         private void InitializeServices()
         {
             _userService = new UserService(new SimpleModelStateWrapper(_userModelState));
@@ -35,21 +38,57 @@ namespace EasyCRM.Admin
             _sectorService = new IndustrialSectorService(new SimpleModelStateWrapper(_taskModelState));
         }
 
+        public static EasyCRMForm getForm()
+        {
+            if (_instance == null)
+                _instance = new EasyCRMForm();
+
+            return _instance;
+        }
+
         private void EasyCRMForm_Load(object sender, System.EventArgs e)
         {
-            setUsers();
-            setSectors();
+            this.usersBindingSource.DataSource = _userService.ListUsers();
+            this.sectorsBindingSource.DataSource = _sectorService.ListIndustrialSectors();
         }
 
 
-        private void setUsers()
+        private void userBindingNavigatorAddNewItem_Click(object sender, System.EventArgs e)
         {
-            this.userBindingSource.DataSource = _userService.ListUsers(); 
+            CreateEditUserForm form = new CreateEditUserForm();
+
+            form.ShowDialog(this);
         }
 
-        private void setSectors()
+        private void userBindingNavigatorDeleteItem_Click(object sender, System.EventArgs e)
         {
-            this.sectorBindingSource.DataSource = _sectorService.ListIndustrialSectors(); 
+            DialogResult result = MessageBox.Show(this, "Are you sure you want to delete this user (cannot be undo) ?",
+                       "Confirm Deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                if (_membershipService.DeleteUser((User)this.usersBindingSource.Current))
+                    this.usersBindingSource.RemoveCurrent();
+                else
+                    MessageBox.Show(this, "Sorry, we were unable to delete the user. Try again.",
+                       "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void userBindingNavigatorEditItem_Click(object sender, System.EventArgs e)
+        {
+            User userToEdit = (User)usersBindingSource.Current;
+            userToEdit.ConfirmPassword = userToEdit.Password;
+
+            CreateEditUserForm form = new CreateEditUserForm(userToEdit,true /*editMode*/);
+
+            form.ShowDialog(this);
+
+        }
+
+        private void userBindingNavigatorRefresh_Click(object sender, System.EventArgs e)
+        {
+            this.usersBindingSource.DataSource = _userService.ListUsers();
         }
 
 

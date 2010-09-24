@@ -15,7 +15,7 @@ namespace EasyCRM.Admin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EasyCRMForm());
+            Application.Run(EasyCRMForm.getForm());
         }
     }
 }

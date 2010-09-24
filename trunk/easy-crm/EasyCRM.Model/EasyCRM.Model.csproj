@@ -148,6 +148,7 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\EasyCRM.Model.Domains.EasyCRMDBEntities.datasource" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Domains\EasyCRMDB.edmx.sql" />

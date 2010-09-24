@@ -100,12 +100,9 @@ namespace EasyCRM.WebApp.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     _formsService.SignIn(user.UserName, false /* createPersistentCookie*/ );
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home"); 
                 }
-                else
-                {
-                    ModelState.AddModelError("", MembershipService.ErrorCodeToString(createStatus));
-                }
+
             }
 
             // If we got this far, something failed, redisplay form
@@ -132,6 +129,8 @@ namespace EasyCRM.WebApp.Controllers
                 Response.StatusCode = (int)HttpStatusCode.NotFound;
                 return View("NotFound");
             }
+            
+            user.ConfirmPassword = user.Password;
 
             return View(user);
         }

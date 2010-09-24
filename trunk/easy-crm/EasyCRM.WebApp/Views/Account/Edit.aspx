@@ -9,7 +9,7 @@
         <img src="../../Content/Images/edit.png" />Edit Account</h2>
     <% using (Html.BeginForm())
        {%>
-    <%: Html.ValidationSummary(true) %>
+    <%: Html.ValidationSummary(true, "The modification of the account was unsuccessful. Please, correct the errors and try again.")%>
     <fieldset>
         <legend>Account Information</legend>
         <%: Html.EditorFor(model => model.Account,

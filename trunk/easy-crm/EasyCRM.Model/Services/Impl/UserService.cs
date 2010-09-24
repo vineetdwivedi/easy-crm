@@ -26,20 +26,34 @@ namespace EasyCRM.Model.Services.Impl
 
         public bool ValidateUser(User userToValidate)
         {
+            //convert null values to empty strings
+            userToValidate.LastName = userToValidate.LastName ?? "";
+            userToValidate.FirstName = userToValidate.FirstName ?? "";
+            userToValidate.UserName = userToValidate.UserName ?? "";
+            userToValidate.Email = userToValidate.Email ?? "";
+            userToValidate.Password = userToValidate.Password ?? "";
+            userToValidate.ConfirmPassword = userToValidate.ConfirmPassword ?? "";
+
             if (userToValidate.FirstName.Trim().Length == 0)
-                _validationDictionary.AddError("FirstName", "First Name is required.");
+                _validationDictionary.AddError("User.FirstName", "First Name is required.");
             if (userToValidate.LastName.Trim().Length == 0)
-                _validationDictionary.AddError("LastName", "Last Name is required.");
+                _validationDictionary.AddError("User.LastName", "Last Name is required.");
             if (userToValidate.UserName.Trim().Length == 0)
-                _validationDictionary.AddError("UserName", "User Name is required.");
+                _validationDictionary.AddError("User.UserName", "User Name is required.");
             if (userToValidate.Password.Trim().Length == 0)
-                _validationDictionary.AddError("Password", "Password is required.");
-            if (userToValidate.Email.Length > 0 && !Regex.IsMatch(userToValidate.Email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
-                _validationDictionary.AddError("Email", "Invalid Email Address.");
+                _validationDictionary.AddError("User.Password", "Password is required.");
+            else if(!userToValidate.Password.Equals(userToValidate.ConfirmPassword))
+                _validationDictionary.AddError("User.ConfirmPassword", "The password and confirmation password do not match.");
+
+            if (userToValidate.Email.Length == 0 )
+                _validationDictionary.AddError("User.Email", "Email Address is required.");
+            else if (userToValidate.Email.Length > 0 && !Regex.IsMatch(userToValidate.Email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
+                _validationDictionary.AddError("User.Email", "Invalid Email Address.");
+            
             return _validationDictionary.IsValid;
         }
 
-        public void addError(string key, string errorMessage)
+        public void AddError(string key, string errorMessage)
         {
             _validationDictionary.AddError(key, errorMessage);
         }

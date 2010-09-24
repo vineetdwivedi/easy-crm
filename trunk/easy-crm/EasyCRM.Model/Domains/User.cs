@@ -45,6 +45,7 @@ namespace EasyCRM.Model.Domains
             [Required(ErrorMessage = "A Email Address is required")]
             [DataType(DataType.EmailAddress, ErrorMessage = "The Email Address is invalid")]
             [DisplayName("Email Address")]
+            [DisplayFormat(ConvertEmptyStringToNull = false)]
             public object Email { get; set; }
 
 
