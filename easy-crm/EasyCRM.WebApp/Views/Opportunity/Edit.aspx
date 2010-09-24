@@ -9,7 +9,7 @@
         <img src="../../Content/Images/edit.png" />Edit Opportunity</h2>
     <% using (Html.BeginForm())
        {%>
-    <%: Html.ValidationSummary(true) %>
+    <%: Html.ValidationSummary(true, "The modification of the opportunity was unsuccessful. Please, correct the errors and try again.")%>
     <fieldset>
         <legend>Opportunity Information</legend>
         <%: Html.EditorFor(model => model.Opportunity, new { Statuses = Model.Statuses, Accounts = Model.Accounts }) %>

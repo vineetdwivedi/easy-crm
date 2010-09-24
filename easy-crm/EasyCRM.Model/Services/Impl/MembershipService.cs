@@ -31,32 +31,51 @@ namespace EasyCRM.Model.Services.Impl
 
         public bool ValidateUser(string userName, string password)
         {
-            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
-            if (String.IsNullOrEmpty(password)) throw new ArgumentException("Value cannot be null or empty.", "password");
+            //convert null values to empty strings
+            userName = userName ?? "";
+            password = password ?? "";
 
             return _provider.ValidateUser(userName, password);
         }
 
         public MembershipCreateStatus CreateUser(User userToCreate)
         {
-            if (String.IsNullOrEmpty(userToCreate.UserName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
-            if (String.IsNullOrEmpty(userToCreate.Password)) throw new ArgumentException("Value cannot be null or empty.", "password");
-            if (String.IsNullOrEmpty(userToCreate.Email)) throw new ArgumentException("Value cannot be null or empty.", "email");
+            //convert null values to empty strings
+            string userName = userToCreate.UserName ?? "";
+            string password = userToCreate.Password ?? "";
+            string email = userToCreate.Email ?? "";
 
             MembershipCreateStatus status;
-            //we create the user in the aspnet membership management database
-            _provider.CreateUser(userToCreate.UserName, userToCreate.Password, userToCreate.Email, null, null, true, null, out status);
+            //we try to create the user in the aspnet membership management database
+            _provider.CreateUser(userName, password,email, null, null, true, null, out status);
 
             //we create our "representation" of the user in our application database
             if (status == MembershipCreateStatus.Success)
             {
                 if (_userService.CreateUser(userToCreate))
                 {
-                    _provider.DeleteUser(userToCreate.UserName, true);
+                    _provider.DeleteUser(userName, true);
                     return MembershipCreateStatus.ProviderError;
                 }
             }
+            else
+            {
+                _userService.AddError("otherError", MembershipService.ErrorCodeToString(status));
+            }
             return status;
+
+        }
+
+        public bool DeleteUser(User userToDelete)
+        {
+            string userName = userToDelete.UserName ?? "";
+
+            //we delete the user in the aspnet membership management database
+            if (_provider.DeleteUser(userToDelete.UserName, false))
+            {  //we delete our "representation" of the user in our application database
+                return _userService.DeleteUser(userToDelete);
+            }
+            return false;
         }
 
         public User GetUser(String userName)
@@ -66,20 +85,20 @@ namespace EasyCRM.Model.Services.Impl
 
         public bool UpdateUser(User userToUpdate, string oldPassword)
         {
-            string newPassword = userToUpdate.Password;
-
-            if (String.IsNullOrEmpty(newPassword)) throw new ArgumentException("Value cannot be null or empty.", "password");
+            string newPassword = userToUpdate.Password ?? "";
 
             if (newPassword.Length < this.MinPasswordLength)
             {
-                _userService.addError("Password", "The password must be at least " + MinPasswordLength + " characters long.");
+                _userService.AddError("Password", "The password must be at least " + MinPasswordLength + " characters long.");
                 return false;
-            }
+            } 
 
             // The underlying ChangePassword() will throw an exception rather
             // than return false in certain failure scenarios.
             try
             {
+                int nb;
+                MembershipUserCollection v = _provider.GetAllUsers(0,10,out nb);
                 MembershipUser currentUser = _provider.GetUser(userToUpdate.UserName, true /* userIsOnline */);
 
                 //we update the password of the user in the aspnet membership management database

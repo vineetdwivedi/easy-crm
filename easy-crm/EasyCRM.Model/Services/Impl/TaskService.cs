@@ -27,6 +27,9 @@ namespace EasyCRM.Model.Services.Impl
 
         public bool ValidateTask(Task taskToValidate)
         {
+            //convert null values to default strings
+            taskToValidate.Subject = taskToValidate.Subject ?? "";
+
             if (taskToValidate.Subject.Trim().Length == 0)
                 _validationDictionary.AddError("Task.Subject", "A Subject is required.");
 

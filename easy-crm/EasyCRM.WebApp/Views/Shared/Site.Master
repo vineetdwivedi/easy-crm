@@ -27,9 +27,9 @@
             
                 <ul id="menu">              
                     <li><%: Html.ActionLinkWithImage("Home", "Index", "Home","../../Content/Images/home.png")%></li>
-                    <li><%: Html.ActionLink("Tasks", "Index", "Task")%></li>
-                    <li><%: Html.ActionLink("Sectors", "Index", "Sector")%></li>       
-                    <li><%: Html.ActionLink("Accounts", "Index", "Account")%></li>
+                    <li><%: Html.ActionLinkWithImage("Tasks", "Index", "Task", "../../Content/Images/task.png")%></li>
+                    <li><%: Html.ActionLinkWithImage("Sectors", "Index", "Sector","../../Content/Images/sector.png")%></li>       
+                    <li><%: Html.ActionLinkWithImage("Accounts", "Index", "Account","../../Content/Images/account.png")%></li>
                     <li><%: Html.ActionLinkWithImage("Contacts", "Index", "Contact", "../../Content/Images/contact.png")%></li>
                     <li><%: Html.ActionLink("Opportunities", "Index", "Opportunity")%></li>
                     <!--<li><%: Html.ActionLink("About", "About", "Home")%></li>-->

@@ -28,6 +28,12 @@ namespace EasyCRM.Model.Services.Impl
 
         public bool ValidateContact(Contact contactToValidate)
         {
+            //convert null values to empty strings
+            contactToValidate.FirstName = contactToValidate.FirstName ?? "";
+            contactToValidate.LastName = contactToValidate.LastName ?? "";
+            contactToValidate.Address = contactToValidate.Address ?? "";
+            contactToValidate.Email = contactToValidate.Email ?? "";
+
             if (contactToValidate.FirstName.Trim().Length == 0)
                 _validationDictionary.AddError("Contact.FirstName", "First name is required.");
             if (contactToValidate.LastName.Trim().Length == 0)
@@ -36,6 +42,7 @@ namespace EasyCRM.Model.Services.Impl
                 _validationDictionary.AddError("Contact.Address", "Address is required.");
             if (contactToValidate.Email.Length > 0 && !Regex.IsMatch(contactToValidate.Email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
                 _validationDictionary.AddError("Contact.Email", "Invalid email address.");
+
             return _validationDictionary.IsValid;
         }
 

@@ -41,7 +41,7 @@
             <%: Html.LabelFor(model => model.ConfirmPassword) %>
         </td>
         <td class="editor-field">
-            <%: Html.PasswordFor(model => model.ConfirmPassword, new { value = (Model == null) ? "" : Model.Password})%>
+            <%: Html.PasswordFor(model => model.ConfirmPassword, new { value = (Model == null) ? "" : Model.ConfirmPassword})%>
             <%: Html.ValidationMessageFor(model => model.ConfirmPassword) %>
         </td>
     </tr>

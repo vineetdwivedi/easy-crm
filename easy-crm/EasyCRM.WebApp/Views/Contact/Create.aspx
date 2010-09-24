@@ -9,7 +9,7 @@
         Create Contact</h2>
     <% using (Html.BeginForm())
        {%>
-    <%: Html.ValidationSummary(true) %>
+    <%: Html.ValidationSummary(true, "The creation of the contact was unsuccessful. Please, correct the errors and try again.")%>
     <fieldset>
         <legend>Contact Information</legend>
         <%: Html.EditorFor(model => model.Contact, new { Statuses = Model.Statuses }) %>

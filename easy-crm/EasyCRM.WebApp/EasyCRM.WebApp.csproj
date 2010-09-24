@@ -141,6 +141,9 @@
     <Compile Include="ViewModels\TaskViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\account.png" />
+    <Content Include="Content\Images\sector.png" />
+    <Content Include="Content\Images\task.png" />
     <Content Include="Content\Images\bottom_bg.png" />
     <Content Include="Content\Images\car.png" />
     <Content Include="Content\Images\contact.png" />
@@ -300,7 +303,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52890</DevelopmentServerPort>
+          <DevelopmentServerPort>55031</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

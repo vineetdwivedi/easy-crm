@@ -27,6 +27,11 @@ namespace EasyCRM.Model.Services.Impl
 
         public bool ValidateAccount(Account accountToValidate)
         {
+            //convert null values to empty strings
+            accountToValidate.Name = accountToValidate.Name ?? "";
+            accountToValidate.Address = accountToValidate.Address ?? "";
+            accountToValidate.Description = accountToValidate.Description ?? "";
+
             if (accountToValidate.Name.Trim().Length == 0)
                 _validationDictionary.AddError("Name", "Name is required.");
             if (accountToValidate.Address.Trim().Length == 0)

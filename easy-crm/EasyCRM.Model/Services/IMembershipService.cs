@@ -11,7 +11,7 @@ namespace EasyCRM.Model.Services
         bool UpdateUser(User userToUpdate, string oldPassword);
         User GetUser(string userName);
         MembershipCreateStatus CreateUser(User userToCreate);
-        
+        bool DeleteUser(User userToDelete);
         
     }
 }

@@ -12,7 +12,7 @@
         <img src="../../Content/Images/edit.png" />Edit Sector</h2>
 
     <% using (Html.BeginForm()) {%>
-        <%: Html.ValidationSummary(true) %>
+        <%: Html.ValidationSummary(true, "The modification of the sector was unsuccessful. Please, correct the errors and try again.")%>
         
         <fieldset>
             <legend>Sector Information</legend>

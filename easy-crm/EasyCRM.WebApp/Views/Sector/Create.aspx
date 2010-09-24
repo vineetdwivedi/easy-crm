@@ -11,7 +11,7 @@
     <h2>Create a new Sector</h2>
 
     <% using (Html.BeginForm()) {%>
-        <%: Html.ValidationSummary(true) %>
+        <%: Html.ValidationSummary(true, "The creation of the sector was unsuccessful. Please, correct the errors and try again.")%>
 
         <fieldset>
             <legend>Sector Information</legend>

@@ -14,7 +14,7 @@
     </p>
     <% using (Html.BeginForm())
        {%>
-    <%: Html.ValidationSummary(true) %>
+    <%: Html.ValidationSummary(true, "The modification of the profile was unsuccessful. Please, correct the errors and try again.")%>
     <fieldset>
         <legend>User Information</legend>
             <%: Html.EditorFor( model => model, new { DisabledUserName = true}) %>
