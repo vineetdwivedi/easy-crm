@@ -52,8 +52,8 @@ namespace EasyCRM.Model.Services.Impl
             //we create our "representation" of the user in our application database
             if (status == MembershipCreateStatus.Success)
             {
-                if (_userService.CreateUser(userToCreate))
-                {
+                if (!_userService.CreateUser(userToCreate))
+                {//if failed, we delete the user previously create in the membership management database
                     _provider.DeleteUser(userName, true);
                     return MembershipCreateStatus.ProviderError;
                 }
@@ -89,7 +89,7 @@ namespace EasyCRM.Model.Services.Impl
 
             if (newPassword.Length < this.MinPasswordLength)
             {
-                _userService.AddError("Password", "The password must be at least " + MinPasswordLength + " characters long.");
+                _userService.AddError("User.Password", "The password must be at least " + MinPasswordLength + " characters long.");
                 return false;
             } 
 

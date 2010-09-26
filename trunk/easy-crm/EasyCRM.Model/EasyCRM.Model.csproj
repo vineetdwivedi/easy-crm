@@ -69,10 +69,10 @@
     <Compile Include="Domains\IndustrialSector.cs" />
     <Compile Include="Domains\Opportunity.cs" />
     <Compile Include="Domains\Account.cs" />
-    <Compile Include="Domains\EasyCRMModel.Designer.cs">
+    <Compile Include="Domains\EasyCRM.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EasyCRMModel.edmx</DependentUpon>
+      <DependentUpon>EasyCRM.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Entity\IndustrialSectorEntityRepository.cs" />
@@ -107,9 +107,9 @@
     <Compile Include="Domains\Task.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Domains\EasyCRMModel.edmx">
+    <EntityDeploy Include="Domains\EasyCRM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EasyCRMModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>EasyCRM.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
