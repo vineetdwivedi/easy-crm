@@ -189,6 +189,7 @@
             this.aboutToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.sectorBindingNavigatorEditItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer.ContentPanel.SuspendLayout();
             this.toolStripContainer.TopToolStripPanel.SuspendLayout();
@@ -532,6 +533,7 @@
             // 
             this.userBindingNavigatorPositionItem.AccessibleName = "Position";
             this.userBindingNavigatorPositionItem.AutoSize = false;
+            this.userBindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.userBindingNavigatorPositionItem.Name = "userBindingNavigatorPositionItem";
             this.userBindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.userBindingNavigatorPositionItem.Text = "0";
@@ -700,6 +702,7 @@
             // 
             this.taskBindingNavigatorPositionItem.AccessibleName = "Position";
             this.taskBindingNavigatorPositionItem.AutoSize = false;
+            this.taskBindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.taskBindingNavigatorPositionItem.Name = "taskBindingNavigatorPositionItem";
             this.taskBindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.taskBindingNavigatorPositionItem.Text = "0";
@@ -908,6 +911,7 @@
             // 
             this.contactBindingNavigatorPositionItem.AccessibleName = "Position";
             this.contactBindingNavigatorPositionItem.AutoSize = false;
+            this.contactBindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.contactBindingNavigatorPositionItem.Name = "contactBindingNavigatorPositionItem";
             this.contactBindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.contactBindingNavigatorPositionItem.Text = "0";
@@ -1102,6 +1106,7 @@
             this.bindingNavigatorSeparator5,
             this.sectorBindingNavigatorAddNewItem,
             this.sectorBindingNavigatorDeleteItem,
+            this.sectorBindingNavigatorEditItem,
             this.sectorBindingNavigatorRefreshItems});
             this.sectorsBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.sectorsBindingNavigator.MoveFirstItem = this.sectorBindingNavigatorMoveFirstItem;
@@ -1168,6 +1173,7 @@
             // 
             this.sectorBindingNavigatorPositionItem.AccessibleName = "Position";
             this.sectorBindingNavigatorPositionItem.AutoSize = false;
+            this.sectorBindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sectorBindingNavigatorPositionItem.Name = "sectorBindingNavigatorPositionItem";
             this.sectorBindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.sectorBindingNavigatorPositionItem.Text = "0";
@@ -1410,6 +1416,7 @@
             // 
             this.accountBindingNavigatorPositionItem.AccessibleName = "Position";
             this.accountBindingNavigatorPositionItem.AutoSize = false;
+            this.accountBindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.accountBindingNavigatorPositionItem.Name = "accountBindingNavigatorPositionItem";
             this.accountBindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.accountBindingNavigatorPositionItem.Text = "0";
@@ -1768,6 +1775,16 @@
             this.exitToolStripButton.Text = "Exit";
             this.exitToolStripButton.Click += new System.EventHandler(this.exitToolStripButton_Click);
             // 
+            // sectorBindingNavigatorEditItem
+            // 
+            this.sectorBindingNavigatorEditItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.sectorBindingNavigatorEditItem.Image = ((System.Drawing.Image)(resources.GetObject("sectorBindingNavigatorEditItem.Image")));
+            this.sectorBindingNavigatorEditItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.sectorBindingNavigatorEditItem.Name = "sectorBindingNavigatorEditItem";
+            this.sectorBindingNavigatorEditItem.Size = new System.Drawing.Size(23, 22);
+            this.sectorBindingNavigatorEditItem.Text = "toolStripButton1";
+            this.sectorBindingNavigatorEditItem.Click += new System.EventHandler(this.sectorBindingNavigatorEditItem_Click);
+            // 
             // EasyCRMForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1992,6 +2009,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.ToolStripButton exitToolStripButton;
         private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.ToolStripButton sectorBindingNavigatorEditItem;
     }
 }
 
