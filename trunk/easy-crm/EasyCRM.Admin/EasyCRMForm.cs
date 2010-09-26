@@ -338,11 +338,21 @@ namespace EasyCRM.Admin
             }
         }
 
+        private void sectorBindingNavigatorEditItem_Click(object sender, System.EventArgs e)
+        {
+            IndustrialSector sectorToEdit = (IndustrialSector)sectorsBindingSource.Current;
+
+            CreateEditSectorForm form = new CreateEditSectorForm(sectorToEdit, true /*editMode*/);
+
+            form.ShowDialog(this);
+        }
+
         private void sectorBindingNavigatorRefreshItems_Click(object sender, System.EventArgs e)
         {
             this.sectorsBindingSource.DataSource = _sectorRepository.ListAll();
         }
         #endregion
+
 
 
     }

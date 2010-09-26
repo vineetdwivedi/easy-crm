@@ -41,7 +41,6 @@ namespace EasyCRM.Admin
             {
                 this.Text = "Edit Sector";
                 this.createEditButton.Text = "Save";
-                this.sectorTextBox.Enabled = false;
             }
 
             this.sectorBindingSource.DataSource = _sector;
