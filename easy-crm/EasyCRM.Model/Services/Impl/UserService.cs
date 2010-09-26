@@ -47,7 +47,7 @@ namespace EasyCRM.Model.Services.Impl
 
             if (userToValidate.Email.Length == 0 )
                 _validationDictionary.AddError("User.Email", "Email Address is required.");
-            else if (userToValidate.Email.Length > 0 && !Regex.IsMatch(userToValidate.Email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
+            else if (!Regex.IsMatch(userToValidate.Email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
                 _validationDictionary.AddError("User.Email", "Invalid Email Address.");
             
             return _validationDictionary.IsValid;

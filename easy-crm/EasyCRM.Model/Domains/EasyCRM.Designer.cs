@@ -18,15 +18,15 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("EasyCRMModel", "UserContact", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.User), "Contact", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Contact))]
-[assembly: EdmRelationshipAttribute("EasyCRMModel", "UserAccount", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.User), "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Account))]
-[assembly: EdmRelationshipAttribute("EasyCRMModel", "UserOpportunity", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.User), "Opportunity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Opportunity))]
-[assembly: EdmRelationshipAttribute("EasyCRMModel", "UserTask", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.User), "Task", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Task))]
-[assembly: EdmRelationshipAttribute("EasyCRMModel", "AccountIndustrialSector", "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Account), "IndustrialSector", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.IndustrialSector))]
-[assembly: EdmRelationshipAttribute("EasyCRMModel", "AccountOpportunity", "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.Account), "Opportunity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Opportunity))]
-[assembly: EdmRelationshipAttribute("EasyCRMModel", "TaskAccount", "Task", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Task), "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EasyCRM.Model.Domains.Account))]
-[assembly: EdmRelationshipAttribute("EasyCRMModel", "TaskContact", "Task", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Task), "Contact", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EasyCRM.Model.Domains.Contact))]
-[assembly: EdmRelationshipAttribute("EasyCRMModel", "AccountContact", "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EasyCRM.Model.Domains.Account), "Contact", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Contact))]
+[assembly: EdmRelationshipAttribute("EasyCRM.Model", "UserContact", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.User), "Contact", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Contact))]
+[assembly: EdmRelationshipAttribute("EasyCRM.Model", "UserAccount", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.User), "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Account))]
+[assembly: EdmRelationshipAttribute("EasyCRM.Model", "UserOpportunity", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.User), "Opportunity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Opportunity))]
+[assembly: EdmRelationshipAttribute("EasyCRM.Model", "UserTask", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.User), "Task", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Task))]
+[assembly: EdmRelationshipAttribute("EasyCRM.Model", "AccountIndustrialSector", "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Account), "IndustrialSector", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.IndustrialSector))]
+[assembly: EdmRelationshipAttribute("EasyCRM.Model", "AccountOpportunity", "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EasyCRM.Model.Domains.Account), "Opportunity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Opportunity))]
+[assembly: EdmRelationshipAttribute("EasyCRM.Model", "TaskAccount", "Task", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Task), "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EasyCRM.Model.Domains.Account))]
+[assembly: EdmRelationshipAttribute("EasyCRM.Model", "TaskContact", "Task", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Task), "Contact", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EasyCRM.Model.Domains.Contact))]
+[assembly: EdmRelationshipAttribute("EasyCRM.Model", "AccountContact", "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EasyCRM.Model.Domains.Account), "Contact", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EasyCRM.Model.Domains.Contact))]
 
 #endregion
 
@@ -236,7 +236,7 @@ namespace EasyCRM.Model.Domains
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EasyCRMModel", Name="Account")]
+    [EdmEntityTypeAttribute(NamespaceName="EasyCRM.Model", Name="Account")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Account : EntityObject
@@ -398,16 +398,16 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "UserAccount", "User")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "UserAccount", "User")]
         public User Owner
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserAccount", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserAccount", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserAccount", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserAccount", "User").Value = value;
             }
         }
         /// <summary>
@@ -419,13 +419,13 @@ namespace EasyCRM.Model.Domains
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserAccount", "User");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserAccount", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EasyCRMModel.UserAccount", "User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EasyCRM.Model.UserAccount", "User", value);
                 }
             }
         }
@@ -436,16 +436,16 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "AccountIndustrialSector", "IndustrialSector")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "AccountIndustrialSector", "IndustrialSector")]
         public IndustrialSector IndustrialSector
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IndustrialSector>("EasyCRMModel.AccountIndustrialSector", "IndustrialSector").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IndustrialSector>("EasyCRM.Model.AccountIndustrialSector", "IndustrialSector").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IndustrialSector>("EasyCRMModel.AccountIndustrialSector", "IndustrialSector").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IndustrialSector>("EasyCRM.Model.AccountIndustrialSector", "IndustrialSector").Value = value;
             }
         }
         /// <summary>
@@ -457,13 +457,13 @@ namespace EasyCRM.Model.Domains
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IndustrialSector>("EasyCRMModel.AccountIndustrialSector", "IndustrialSector");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<IndustrialSector>("EasyCRM.Model.AccountIndustrialSector", "IndustrialSector");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<IndustrialSector>("EasyCRMModel.AccountIndustrialSector", "IndustrialSector", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<IndustrialSector>("EasyCRM.Model.AccountIndustrialSector", "IndustrialSector", value);
                 }
             }
         }
@@ -474,18 +474,18 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "AccountOpportunity", "Opportunity")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "AccountOpportunity", "Opportunity")]
         public EntityCollection<Opportunity> Opportunities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Opportunity>("EasyCRMModel.AccountOpportunity", "Opportunity");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Opportunity>("EasyCRM.Model.AccountOpportunity", "Opportunity");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Opportunity>("EasyCRMModel.AccountOpportunity", "Opportunity", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Opportunity>("EasyCRM.Model.AccountOpportunity", "Opportunity", value);
                 }
             }
         }
@@ -496,18 +496,18 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "TaskAccount", "Task")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "TaskAccount", "Task")]
         public EntityCollection<Task> Tasks
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Task>("EasyCRMModel.TaskAccount", "Task");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Task>("EasyCRM.Model.TaskAccount", "Task");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Task>("EasyCRMModel.TaskAccount", "Task", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Task>("EasyCRM.Model.TaskAccount", "Task", value);
                 }
             }
         }
@@ -518,18 +518,18 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "AccountContact", "Contact")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "AccountContact", "Contact")]
         public EntityCollection<Contact> Contacts
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Contact>("EasyCRMModel.AccountContact", "Contact");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Contact>("EasyCRM.Model.AccountContact", "Contact");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Contact>("EasyCRMModel.AccountContact", "Contact", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Contact>("EasyCRM.Model.AccountContact", "Contact", value);
                 }
             }
         }
@@ -540,7 +540,7 @@ namespace EasyCRM.Model.Domains
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EasyCRMModel", Name="Contact")]
+    [EdmEntityTypeAttribute(NamespaceName="EasyCRM.Model", Name="Contact")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Contact : EntityObject
@@ -728,16 +728,16 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "UserContact", "User")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "UserContact", "User")]
         public User ResponsibleUser
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserContact", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserContact", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserContact", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserContact", "User").Value = value;
             }
         }
         /// <summary>
@@ -749,13 +749,13 @@ namespace EasyCRM.Model.Domains
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserContact", "User");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserContact", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EasyCRMModel.UserContact", "User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EasyCRM.Model.UserContact", "User", value);
                 }
             }
         }
@@ -766,18 +766,18 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "TaskContact", "Task")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "TaskContact", "Task")]
         public EntityCollection<Task> Tasks
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Task>("EasyCRMModel.TaskContact", "Task");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Task>("EasyCRM.Model.TaskContact", "Task");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Task>("EasyCRMModel.TaskContact", "Task", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Task>("EasyCRM.Model.TaskContact", "Task", value);
                 }
             }
         }
@@ -788,16 +788,16 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "AccountContact", "Account")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "AccountContact", "Account")]
         public Account Account
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRMModel.AccountContact", "Account").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRM.Model.AccountContact", "Account").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRMModel.AccountContact", "Account").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRM.Model.AccountContact", "Account").Value = value;
             }
         }
         /// <summary>
@@ -809,13 +809,13 @@ namespace EasyCRM.Model.Domains
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRMModel.AccountContact", "Account");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRM.Model.AccountContact", "Account");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Account>("EasyCRMModel.AccountContact", "Account", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Account>("EasyCRM.Model.AccountContact", "Account", value);
                 }
             }
         }
@@ -826,7 +826,7 @@ namespace EasyCRM.Model.Domains
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EasyCRMModel", Name="IndustrialSector")]
+    [EdmEntityTypeAttribute(NamespaceName="EasyCRM.Model", Name="IndustrialSector")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class IndustrialSector : EntityObject
@@ -907,7 +907,7 @@ namespace EasyCRM.Model.Domains
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EasyCRMModel", Name="Opportunity")]
+    [EdmEntityTypeAttribute(NamespaceName="EasyCRM.Model", Name="Opportunity")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Opportunity : EntityObject
@@ -1043,16 +1043,16 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "UserOpportunity", "User")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "UserOpportunity", "User")]
         public User ResponsibleUser
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserOpportunity", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserOpportunity", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserOpportunity", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserOpportunity", "User").Value = value;
             }
         }
         /// <summary>
@@ -1064,13 +1064,13 @@ namespace EasyCRM.Model.Domains
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserOpportunity", "User");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserOpportunity", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EasyCRMModel.UserOpportunity", "User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EasyCRM.Model.UserOpportunity", "User", value);
                 }
             }
         }
@@ -1081,16 +1081,16 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "AccountOpportunity", "Account")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "AccountOpportunity", "Account")]
         public Account Account
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRMModel.AccountOpportunity", "Account").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRM.Model.AccountOpportunity", "Account").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRMModel.AccountOpportunity", "Account").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRM.Model.AccountOpportunity", "Account").Value = value;
             }
         }
         /// <summary>
@@ -1102,13 +1102,13 @@ namespace EasyCRM.Model.Domains
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRMModel.AccountOpportunity", "Account");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRM.Model.AccountOpportunity", "Account");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Account>("EasyCRMModel.AccountOpportunity", "Account", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Account>("EasyCRM.Model.AccountOpportunity", "Account", value);
                 }
             }
         }
@@ -1119,7 +1119,7 @@ namespace EasyCRM.Model.Domains
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EasyCRMModel", Name="Task")]
+    [EdmEntityTypeAttribute(NamespaceName="EasyCRM.Model", Name="Task")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Task : EntityObject
@@ -1333,16 +1333,16 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "UserTask", "User")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "UserTask", "User")]
         public User ResponsibleUser
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserTask", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserTask", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserTask", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserTask", "User").Value = value;
             }
         }
         /// <summary>
@@ -1354,13 +1354,13 @@ namespace EasyCRM.Model.Domains
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRMModel.UserTask", "User");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EasyCRM.Model.UserTask", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EasyCRMModel.UserTask", "User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EasyCRM.Model.UserTask", "User", value);
                 }
             }
         }
@@ -1371,16 +1371,16 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "TaskAccount", "Account")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "TaskAccount", "Account")]
         public Account Account
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRMModel.TaskAccount", "Account").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRM.Model.TaskAccount", "Account").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRMModel.TaskAccount", "Account").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRM.Model.TaskAccount", "Account").Value = value;
             }
         }
         /// <summary>
@@ -1392,13 +1392,13 @@ namespace EasyCRM.Model.Domains
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRMModel.TaskAccount", "Account");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Account>("EasyCRM.Model.TaskAccount", "Account");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Account>("EasyCRMModel.TaskAccount", "Account", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Account>("EasyCRM.Model.TaskAccount", "Account", value);
                 }
             }
         }
@@ -1409,16 +1409,16 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "TaskContact", "Contact")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "TaskContact", "Contact")]
         public Contact Contact
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contact>("EasyCRMModel.TaskContact", "Contact").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contact>("EasyCRM.Model.TaskContact", "Contact").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contact>("EasyCRMModel.TaskContact", "Contact").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contact>("EasyCRM.Model.TaskContact", "Contact").Value = value;
             }
         }
         /// <summary>
@@ -1430,13 +1430,13 @@ namespace EasyCRM.Model.Domains
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contact>("EasyCRMModel.TaskContact", "Contact");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contact>("EasyCRM.Model.TaskContact", "Contact");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Contact>("EasyCRMModel.TaskContact", "Contact", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Contact>("EasyCRM.Model.TaskContact", "Contact", value);
                 }
             }
         }
@@ -1447,7 +1447,7 @@ namespace EasyCRM.Model.Domains
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EasyCRMModel", Name="User")]
+    [EdmEntityTypeAttribute(NamespaceName="EasyCRM.Model", Name="User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class User : EntityObject
@@ -1661,18 +1661,18 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "UserContact", "Contact")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "UserContact", "Contact")]
         public EntityCollection<Contact> Contacts
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Contact>("EasyCRMModel.UserContact", "Contact");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Contact>("EasyCRM.Model.UserContact", "Contact");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Contact>("EasyCRMModel.UserContact", "Contact", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Contact>("EasyCRM.Model.UserContact", "Contact", value);
                 }
             }
         }
@@ -1683,18 +1683,18 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "UserAccount", "Account")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "UserAccount", "Account")]
         public EntityCollection<Account> Accounts
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Account>("EasyCRMModel.UserAccount", "Account");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Account>("EasyCRM.Model.UserAccount", "Account");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Account>("EasyCRMModel.UserAccount", "Account", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Account>("EasyCRM.Model.UserAccount", "Account", value);
                 }
             }
         }
@@ -1705,18 +1705,18 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "UserOpportunity", "Opportunity")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "UserOpportunity", "Opportunity")]
         public EntityCollection<Opportunity> Opportunities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Opportunity>("EasyCRMModel.UserOpportunity", "Opportunity");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Opportunity>("EasyCRM.Model.UserOpportunity", "Opportunity");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Opportunity>("EasyCRMModel.UserOpportunity", "Opportunity", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Opportunity>("EasyCRM.Model.UserOpportunity", "Opportunity", value);
                 }
             }
         }
@@ -1727,18 +1727,18 @@ namespace EasyCRM.Model.Domains
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EasyCRMModel", "UserTask", "Task")]
+        [EdmRelationshipNavigationPropertyAttribute("EasyCRM.Model", "UserTask", "Task")]
         public EntityCollection<Task> Tasks
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Task>("EasyCRMModel.UserTask", "Task");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Task>("EasyCRM.Model.UserTask", "Task");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Task>("EasyCRMModel.UserTask", "Task", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Task>("EasyCRM.Model.UserTask", "Task", value);
                 }
             }
         }

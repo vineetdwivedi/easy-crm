@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateEditUserForm));
             this.userTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.otherErrorLabel = new System.Windows.Forms.Label();
+            this.lastNameErrorLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
@@ -47,15 +49,13 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.createEditButton = new System.Windows.Forms.Button();
-            this.validationMessageLabel = new System.Windows.Forms.Label();
-            this.lastNameErrorLabel = new System.Windows.Forms.Label();
             this.firstNameErrorLabel = new System.Windows.Forms.Label();
             this.userNamErrorLabel = new System.Windows.Forms.Label();
             this.passwordErrorLabel = new System.Windows.Forms.Label();
             this.confirmPasswordErrorLabel = new System.Windows.Forms.Label();
             this.emailErrorLabel = new System.Windows.Forms.Label();
+            this.validationMessageLabel = new System.Windows.Forms.Label();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.otherErrorLabel = new System.Windows.Forms.Label();
             this.userTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -109,6 +109,31 @@
             this.userTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.userTableLayoutPanel.Size = new System.Drawing.Size(480, 252);
             this.userTableLayoutPanel.TabIndex = 1;
+            // 
+            // otherErrorLabel
+            // 
+            this.otherErrorLabel.AutoEllipsis = true;
+            this.otherErrorLabel.AutoSize = true;
+            this.userTableLayoutPanel.SetColumnSpan(this.otherErrorLabel, 3);
+            this.otherErrorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.otherErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.otherErrorLabel.Location = new System.Drawing.Point(8, 21);
+            this.otherErrorLabel.Name = "otherErrorLabel";
+            this.otherErrorLabel.Size = new System.Drawing.Size(464, 13);
+            this.otherErrorLabel.TabIndex = 22;
+            this.otherErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lastNameErrorLabel
+            // 
+            this.lastNameErrorLabel.AutoEllipsis = true;
+            this.lastNameErrorLabel.AutoSize = true;
+            this.lastNameErrorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lastNameErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.lastNameErrorLabel.Location = new System.Drawing.Point(334, 34);
+            this.lastNameErrorLabel.Name = "lastNameErrorLabel";
+            this.lastNameErrorLabel.Size = new System.Drawing.Size(138, 26);
+            this.lastNameErrorLabel.TabIndex = 2;
+            this.lastNameErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -284,34 +309,6 @@
             this.createEditButton.UseVisualStyleBackColor = true;
             this.createEditButton.Click += new System.EventHandler(this.createEditButton_Click);
             // 
-            // validationMessageLabel
-            // 
-            this.validationMessageLabel.AutoEllipsis = true;
-            this.validationMessageLabel.AutoSize = true;
-            this.userTableLayoutPanel.SetColumnSpan(this.validationMessageLabel, 3);
-            this.validationMessageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.validationMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.validationMessageLabel.ForeColor = System.Drawing.Color.Red;
-            this.validationMessageLabel.Location = new System.Drawing.Point(8, 5);
-            this.validationMessageLabel.Name = "validationMessageLabel";
-            this.validationMessageLabel.Size = new System.Drawing.Size(464, 16);
-            this.validationMessageLabel.TabIndex = 16;
-            this.validationMessageLabel.Text = "Please correct the errors and try again.";
-            this.validationMessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.validationMessageLabel.Visible = false;
-            // 
-            // lastNameErrorLabel
-            // 
-            this.lastNameErrorLabel.AutoEllipsis = true;
-            this.lastNameErrorLabel.AutoSize = true;
-            this.lastNameErrorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lastNameErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.lastNameErrorLabel.Location = new System.Drawing.Point(334, 34);
-            this.lastNameErrorLabel.Name = "lastNameErrorLabel";
-            this.lastNameErrorLabel.Size = new System.Drawing.Size(138, 26);
-            this.lastNameErrorLabel.TabIndex = 2;
-            this.lastNameErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // firstNameErrorLabel
             // 
             this.firstNameErrorLabel.AutoEllipsis = true;
@@ -372,22 +369,25 @@
             this.emailErrorLabel.TabIndex = 21;
             this.emailErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // validationMessageLabel
+            // 
+            this.validationMessageLabel.AutoEllipsis = true;
+            this.validationMessageLabel.AutoSize = true;
+            this.userTableLayoutPanel.SetColumnSpan(this.validationMessageLabel, 3);
+            this.validationMessageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.validationMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validationMessageLabel.ForeColor = System.Drawing.Color.Red;
+            this.validationMessageLabel.Location = new System.Drawing.Point(8, 5);
+            this.validationMessageLabel.Name = "validationMessageLabel";
+            this.validationMessageLabel.Size = new System.Drawing.Size(464, 16);
+            this.validationMessageLabel.TabIndex = 16;
+            this.validationMessageLabel.Text = "Please correct the errors and try again.";
+            this.validationMessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.validationMessageLabel.Visible = false;
+            // 
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(EasyCRM.Model.Domains.User);
-            // 
-            // otherErrorLabel
-            // 
-            this.otherErrorLabel.AutoEllipsis = true;
-            this.otherErrorLabel.AutoSize = true;
-            this.userTableLayoutPanel.SetColumnSpan(this.otherErrorLabel, 3);
-            this.otherErrorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.otherErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.otherErrorLabel.Location = new System.Drawing.Point(8, 21);
-            this.otherErrorLabel.Name = "otherErrorLabel";
-            this.otherErrorLabel.Size = new System.Drawing.Size(464, 13);
-            this.otherErrorLabel.TabIndex = 22;
-            this.otherErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CreateEditUserForm
             // 
@@ -402,7 +402,6 @@
             this.Name = "CreateEditUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create a new User";
-            this.TopMost = true;
             this.userTableLayoutPanel.ResumeLayout(false);
             this.userTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();

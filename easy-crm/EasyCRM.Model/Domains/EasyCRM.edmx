@@ -238,47 +238,47 @@
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EasyCRMModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EasyCRM.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityContainer Name="EasyCRMDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="UserSet" EntityType="EasyCRMModel.User" />
-          <EntitySet Name="AccountSet" EntityType="EasyCRMModel.Account" />
-          <EntitySet Name="ContactSet" EntityType="EasyCRMModel.Contact" />
-          <EntitySet Name="TaskSet" EntityType="EasyCRMModel.Task" />
-          <EntitySet Name="OpportunitySet" EntityType="EasyCRMModel.Opportunity" />
-          <EntitySet Name="IndustrialSectorSet" EntityType="EasyCRMModel.IndustrialSector" />
-          <AssociationSet Name="UserContact" Association="EasyCRMModel.UserContact">
+          <EntitySet Name="UserSet" EntityType="EasyCRM.Model.User" />
+          <EntitySet Name="AccountSet" EntityType="EasyCRM.Model.Account" />
+          <EntitySet Name="ContactSet" EntityType="EasyCRM.Model.Contact" />
+          <EntitySet Name="TaskSet" EntityType="EasyCRM.Model.Task" />
+          <EntitySet Name="OpportunitySet" EntityType="EasyCRM.Model.Opportunity" />
+          <EntitySet Name="IndustrialSectorSet" EntityType="EasyCRM.Model.IndustrialSector" />
+          <AssociationSet Name="UserContact" Association="EasyCRM.Model.UserContact">
             <End Role="User" EntitySet="UserSet" />
             <End Role="Contact" EntitySet="ContactSet" />
           </AssociationSet>
-          <AssociationSet Name="UserAccount" Association="EasyCRMModel.UserAccount">
+          <AssociationSet Name="UserAccount" Association="EasyCRM.Model.UserAccount">
             <End Role="User" EntitySet="UserSet" />
             <End Role="Account" EntitySet="AccountSet" />
           </AssociationSet>
-          <AssociationSet Name="UserOpportunity" Association="EasyCRMModel.UserOpportunity">
+          <AssociationSet Name="UserOpportunity" Association="EasyCRM.Model.UserOpportunity">
             <End Role="User" EntitySet="UserSet" />
             <End Role="Opportunity" EntitySet="OpportunitySet" />
           </AssociationSet>
-          <AssociationSet Name="UserTask" Association="EasyCRMModel.UserTask">
+          <AssociationSet Name="UserTask" Association="EasyCRM.Model.UserTask">
             <End Role="User" EntitySet="UserSet" />
             <End Role="Task" EntitySet="TaskSet" />
           </AssociationSet>
-          <AssociationSet Name="AccountIndustrialSector" Association="EasyCRMModel.AccountIndustrialSector">
+          <AssociationSet Name="AccountIndustrialSector" Association="EasyCRM.Model.AccountIndustrialSector">
             <End Role="Account" EntitySet="AccountSet" />
             <End Role="IndustrialSector" EntitySet="IndustrialSectorSet" />
           </AssociationSet>
-          <AssociationSet Name="AccountOpportunity" Association="EasyCRMModel.AccountOpportunity">
+          <AssociationSet Name="AccountOpportunity" Association="EasyCRM.Model.AccountOpportunity">
             <End Role="Account" EntitySet="AccountSet" />
             <End Role="Opportunity" EntitySet="OpportunitySet" />
           </AssociationSet>
-          <AssociationSet Name="TaskAccount" Association="EasyCRMModel.TaskAccount">
+          <AssociationSet Name="TaskAccount" Association="EasyCRM.Model.TaskAccount">
             <End EntitySet="TaskSet" Role="Task" />
             <End EntitySet="AccountSet" Role="Account" />
           </AssociationSet>
-          <AssociationSet Name="TaskContact" Association="EasyCRMModel.TaskContact">
+          <AssociationSet Name="TaskContact" Association="EasyCRM.Model.TaskContact">
             <End Role="Task" EntitySet="TaskSet" />
             <End Role="Contact" EntitySet="ContactSet" />
           </AssociationSet>
-          <AssociationSet Name="AccountContact" Association="EasyCRMModel.AccountContact">
+          <AssociationSet Name="AccountContact" Association="EasyCRM.Model.AccountContact">
             <End Role="Account" EntitySet="AccountSet" />
             <End Role="Contact" EntitySet="ContactSet" />
           </AssociationSet>
@@ -293,10 +293,10 @@
           <Property Type="String" Name="UserName" Nullable="false" />
           <Property Type="String" Name="Password" Nullable="false" />
           <Property Type="String" Name="Email" Nullable="false" />
-          <NavigationProperty Name="Contacts" Relationship="EasyCRMModel.UserContact" FromRole="User" ToRole="Contact" />
-          <NavigationProperty Name="Accounts" Relationship="EasyCRMModel.UserAccount" FromRole="User" ToRole="Account" />
-          <NavigationProperty Name="Opportunities" Relationship="EasyCRMModel.UserOpportunity" FromRole="User" ToRole="Opportunity" />
-          <NavigationProperty Name="Tasks" Relationship="EasyCRMModel.UserTask" FromRole="User" ToRole="Task" />
+          <NavigationProperty Name="Contacts" Relationship="EasyCRM.Model.UserContact" FromRole="User" ToRole="Contact" />
+          <NavigationProperty Name="Accounts" Relationship="EasyCRM.Model.UserAccount" FromRole="User" ToRole="Account" />
+          <NavigationProperty Name="Opportunities" Relationship="EasyCRM.Model.UserOpportunity" FromRole="User" ToRole="Opportunity" />
+          <NavigationProperty Name="Tasks" Relationship="EasyCRM.Model.UserTask" FromRole="User" ToRole="Task" />
           <Property Type="Boolean" Name="IsAdmin" Nullable="false" />
         </EntityType>
         <EntityType Name="Account">
@@ -308,11 +308,11 @@
           <Property Type="String" Name="Address" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
           <Property Type="String" Name="Type" Nullable="false" />
-          <NavigationProperty Name="Owner" Relationship="EasyCRMModel.UserAccount" FromRole="Account" ToRole="User" />
-          <NavigationProperty Name="IndustrialSector" Relationship="EasyCRMModel.AccountIndustrialSector" FromRole="Account" ToRole="IndustrialSector" />
-          <NavigationProperty Name="Opportunities" Relationship="EasyCRMModel.AccountOpportunity" FromRole="Account" ToRole="Opportunity" />
-          <NavigationProperty Name="Tasks" Relationship="EasyCRMModel.TaskAccount" FromRole="Account" ToRole="Task" />
-          <NavigationProperty Name="Contacts" Relationship="EasyCRMModel.AccountContact" FromRole="Account" ToRole="Contact" />
+          <NavigationProperty Name="Owner" Relationship="EasyCRM.Model.UserAccount" FromRole="Account" ToRole="User" />
+          <NavigationProperty Name="IndustrialSector" Relationship="EasyCRM.Model.AccountIndustrialSector" FromRole="Account" ToRole="IndustrialSector" />
+          <NavigationProperty Name="Opportunities" Relationship="EasyCRM.Model.AccountOpportunity" FromRole="Account" ToRole="Opportunity" />
+          <NavigationProperty Name="Tasks" Relationship="EasyCRM.Model.TaskAccount" FromRole="Account" ToRole="Task" />
+          <NavigationProperty Name="Contacts" Relationship="EasyCRM.Model.AccountContact" FromRole="Account" ToRole="Contact" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -323,10 +323,10 @@
           <Property Type="String" Name="FirstName" Nullable="false" />
           <Property Type="String" Name="Address" Nullable="false" />
           <Property Type="String" Name="Status" Nullable="false" />
-          <NavigationProperty Name="ResponsibleUser" Relationship="EasyCRMModel.UserContact" FromRole="Contact" ToRole="User" />
+          <NavigationProperty Name="ResponsibleUser" Relationship="EasyCRM.Model.UserContact" FromRole="Contact" ToRole="User" />
           <Property Type="String" Name="Email" Nullable="false" />
-          <NavigationProperty Name="Tasks" Relationship="EasyCRMModel.TaskContact" FromRole="Contact" ToRole="Task" />
-          <NavigationProperty Name="Account" Relationship="EasyCRMModel.AccountContact" FromRole="Contact" ToRole="Account" />
+          <NavigationProperty Name="Tasks" Relationship="EasyCRM.Model.TaskContact" FromRole="Contact" ToRole="Task" />
+          <NavigationProperty Name="Account" Relationship="EasyCRM.Model.AccountContact" FromRole="Contact" ToRole="Account" />
         </EntityType>
         <EntityType Name="Task">
           <Key>
@@ -339,9 +339,9 @@
           <Property Type="DateTime" Name="LimitDate" Nullable="false" />
           <Property Type="DateTime" Name="EndDate" Nullable="false" />
           <Property Type="String" Name="Priority" Nullable="false" />
-          <NavigationProperty Name="ResponsibleUser" Relationship="EasyCRMModel.UserTask" FromRole="Task" ToRole="User" />
-          <NavigationProperty Name="Account" Relationship="EasyCRMModel.TaskAccount" FromRole="Task" ToRole="Account" />
-          <NavigationProperty Name="Contact" Relationship="EasyCRMModel.TaskContact" FromRole="Task" ToRole="Contact" />
+          <NavigationProperty Name="ResponsibleUser" Relationship="EasyCRM.Model.UserTask" FromRole="Task" ToRole="User" />
+          <NavigationProperty Name="Account" Relationship="EasyCRM.Model.TaskAccount" FromRole="Task" ToRole="Account" />
+          <NavigationProperty Name="Contact" Relationship="EasyCRM.Model.TaskContact" FromRole="Task" ToRole="Contact" />
         </EntityType>
         <EntityType Name="Opportunity">
           <Key>
@@ -351,8 +351,8 @@
           <Property Type="Double" Name="Amount" Nullable="false" />
           <Property Type="String" Name="Status" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
-          <NavigationProperty Name="ResponsibleUser" Relationship="EasyCRMModel.UserOpportunity" FromRole="Opportunity" ToRole="User" />
-          <NavigationProperty Name="Account" Relationship="EasyCRMModel.AccountOpportunity" FromRole="Opportunity" ToRole="Account" />
+          <NavigationProperty Name="ResponsibleUser" Relationship="EasyCRM.Model.UserOpportunity" FromRole="Opportunity" ToRole="User" />
+          <NavigationProperty Name="Account" Relationship="EasyCRM.Model.AccountOpportunity" FromRole="Opportunity" ToRole="Account" />
         </EntityType>
         <EntityType Name="IndustrialSector">
           <Key>
@@ -362,50 +362,50 @@
           <Property Type="String" Name="Sector" Nullable="false" />
         </EntityType>
         <Association Name="UserContact">
-          <End Type="EasyCRMModel.User" Role="User" Multiplicity="1" >
+          <End Type="EasyCRM.Model.User" Role="User" Multiplicity="1" >
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="EasyCRMModel.Contact" Role="Contact" Multiplicity="*" />
+          <End Type="EasyCRM.Model.Contact" Role="Contact" Multiplicity="*" />
         </Association>
         <Association Name="UserAccount">
-          <End Type="EasyCRMModel.User" Role="User" Multiplicity="1" >
+          <End Type="EasyCRM.Model.User" Role="User" Multiplicity="1" >
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="EasyCRMModel.Account" Role="Account" Multiplicity="*" />
+          <End Type="EasyCRM.Model.Account" Role="Account" Multiplicity="*" />
         </Association>
         <Association Name="UserOpportunity">
-          <End Type="EasyCRMModel.User" Role="User" Multiplicity="1" >
+          <End Type="EasyCRM.Model.User" Role="User" Multiplicity="1" >
           </End>
-          <End Type="EasyCRMModel.Opportunity" Role="Opportunity" Multiplicity="*" />
+          <End Type="EasyCRM.Model.Opportunity" Role="Opportunity" Multiplicity="*" />
         </Association>
         <Association Name="UserTask">
-          <End Type="EasyCRMModel.User" Role="User" Multiplicity="1" >
+          <End Type="EasyCRM.Model.User" Role="User" Multiplicity="1" >
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="EasyCRMModel.Task" Role="Task" Multiplicity="*" />
+          <End Type="EasyCRM.Model.Task" Role="Task" Multiplicity="*" />
         </Association>
         <Association Name="AccountIndustrialSector">
-          <End Type="EasyCRMModel.Account" Role="Account" Multiplicity="*" />
-          <End Type="EasyCRMModel.IndustrialSector" Role="IndustrialSector" Multiplicity="1" />
+          <End Type="EasyCRM.Model.Account" Role="Account" Multiplicity="*" />
+          <End Type="EasyCRM.Model.IndustrialSector" Role="IndustrialSector" Multiplicity="1" />
         </Association>
         <Association Name="AccountOpportunity">
-          <End Type="EasyCRMModel.Account" Role="Account" Multiplicity="1" >
+          <End Type="EasyCRM.Model.Account" Role="Account" Multiplicity="1" >
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="EasyCRMModel.Opportunity" Role="Opportunity" Multiplicity="*" />
+          <End Type="EasyCRM.Model.Opportunity" Role="Opportunity" Multiplicity="*" />
         </Association>
         <Association Name="TaskAccount">
-          <End Type="EasyCRMModel.Task" Multiplicity="*" Role="Task" />
-          <End Type="EasyCRMModel.Account" Multiplicity="0..1" Role="Account" />
+          <End Type="EasyCRM.Model.Task" Multiplicity="*" Role="Task" />
+          <End Type="EasyCRM.Model.Account" Multiplicity="0..1" Role="Account" />
         </Association>
         <Association Name="TaskContact">
-          <End Type="EasyCRMModel.Task" Role="Task" Multiplicity="*" />
-          <End Type="EasyCRMModel.Contact" Role="Contact" Multiplicity="0..1" />
+          <End Type="EasyCRM.Model.Task" Role="Task" Multiplicity="*" />
+          <End Type="EasyCRM.Model.Contact" Role="Contact" Multiplicity="0..1" />
         </Association>
         <Association Name="AccountContact">
-          <End Type="EasyCRMModel.Account" Role="Account" Multiplicity="0..1" >
+          <End Type="EasyCRM.Model.Account" Role="Account" Multiplicity="0..1" >
           </End>
-          <End Type="EasyCRMModel.Contact" Role="Contact" Multiplicity="*" />
+          <End Type="EasyCRM.Model.Contact" Role="Contact" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -414,7 +414,7 @@
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EasyCRMModelStoreContainer" CdmEntityContainer="EasyCRMDBEntities">
     <EntitySetMapping Name="UserSet">
-      <EntityTypeMapping TypeName="IsTypeOf(EasyCRMModel.User)">
+      <EntityTypeMapping TypeName="IsTypeOf(EasyCRM.Model.User)">
         <MappingFragment StoreEntitySet="UserSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -427,7 +427,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AccountSet">
-      <EntityTypeMapping TypeName="IsTypeOf(EasyCRMModel.Account)">
+      <EntityTypeMapping TypeName="IsTypeOf(EasyCRM.Model.Account)">
         <MappingFragment StoreEntitySet="AccountSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -438,7 +438,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ContactSet">
-      <EntityTypeMapping TypeName="IsTypeOf(EasyCRMModel.Contact)">
+      <EntityTypeMapping TypeName="IsTypeOf(EasyCRM.Model.Contact)">
         <MappingFragment StoreEntitySet="ContactSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -450,7 +450,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TaskSet">
-      <EntityTypeMapping TypeName="IsTypeOf(EasyCRMModel.Task)">
+      <EntityTypeMapping TypeName="IsTypeOf(EasyCRM.Model.Task)">
         <MappingFragment StoreEntitySet="TaskSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
@@ -463,7 +463,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OpportunitySet">
-      <EntityTypeMapping TypeName="IsTypeOf(EasyCRMModel.Opportunity)">
+      <EntityTypeMapping TypeName="IsTypeOf(EasyCRM.Model.Opportunity)">
         <MappingFragment StoreEntitySet="OpportunitySet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -473,14 +473,14 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="IndustrialSectorSet">
-      <EntityTypeMapping TypeName="IsTypeOf(EasyCRMModel.IndustrialSector)">
+      <EntityTypeMapping TypeName="IsTypeOf(EasyCRM.Model.IndustrialSector)">
         <MappingFragment StoreEntitySet="IndustrialSectorSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Sector" ColumnName="Sector" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="UserContact" TypeName="EasyCRMModel.UserContact" StoreEntitySet="ContactSet">
+    <AssociationSetMapping Name="UserContact" TypeName="EasyCRM.Model.UserContact" StoreEntitySet="ContactSet">
       <EndProperty Name="User">
         <ScalarProperty Name="Id" ColumnName="ResponsibleUser_Id" />
       </EndProperty>
@@ -488,7 +488,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="UserAccount" TypeName="EasyCRMModel.UserAccount" StoreEntitySet="AccountSet">
+    <AssociationSetMapping Name="UserAccount" TypeName="EasyCRM.Model.UserAccount" StoreEntitySet="AccountSet">
       <EndProperty Name="User">
         <ScalarProperty Name="Id" ColumnName="Owner_Id" />
       </EndProperty>
@@ -496,7 +496,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="UserOpportunity" TypeName="EasyCRMModel.UserOpportunity" StoreEntitySet="OpportunitySet">
+    <AssociationSetMapping Name="UserOpportunity" TypeName="EasyCRM.Model.UserOpportunity" StoreEntitySet="OpportunitySet">
       <EndProperty Name="User">
         <ScalarProperty Name="Id" ColumnName="ResponsibleUser_Id" />
       </EndProperty>
@@ -504,7 +504,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="UserTask" TypeName="EasyCRMModel.UserTask" StoreEntitySet="TaskSet">
+    <AssociationSetMapping Name="UserTask" TypeName="EasyCRM.Model.UserTask" StoreEntitySet="TaskSet">
       <EndProperty Name="User">
         <ScalarProperty Name="Id" ColumnName="ResponsibleUser_Id" />
       </EndProperty>
@@ -512,7 +512,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="AccountIndustrialSector" TypeName="EasyCRMModel.AccountIndustrialSector" StoreEntitySet="AccountSet">
+    <AssociationSetMapping Name="AccountIndustrialSector" TypeName="EasyCRM.Model.AccountIndustrialSector" StoreEntitySet="AccountSet">
       <EndProperty Name="IndustrialSector">
         <ScalarProperty Name="Id" ColumnName="IndustrialSector_Id" />
       </EndProperty>
@@ -520,7 +520,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="AccountOpportunity" TypeName="EasyCRMModel.AccountOpportunity" StoreEntitySet="OpportunitySet">
+    <AssociationSetMapping Name="AccountOpportunity" TypeName="EasyCRM.Model.AccountOpportunity" StoreEntitySet="OpportunitySet">
       <EndProperty Name="Account">
         <ScalarProperty Name="Id" ColumnName="Account_Id" />
       </EndProperty>
@@ -528,7 +528,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="TaskAccount" TypeName="EasyCRMModel.TaskAccount" StoreEntitySet="TaskSet">
+    <AssociationSetMapping Name="TaskAccount" TypeName="EasyCRM.Model.TaskAccount" StoreEntitySet="TaskSet">
       <EndProperty Name="Account">
         <ScalarProperty Name="Id" ColumnName="Account_Id" />
       </EndProperty>
@@ -537,7 +537,7 @@
       </EndProperty>
       <Condition ColumnName="Account_Id" IsNull="false" />
     </AssociationSetMapping>
-    <AssociationSetMapping Name="TaskContact" TypeName="EasyCRMModel.TaskContact" StoreEntitySet="TaskSet">
+    <AssociationSetMapping Name="TaskContact" TypeName="EasyCRM.Model.TaskContact" StoreEntitySet="TaskSet">
       <EndProperty Name="Contact">
         <ScalarProperty Name="Id" ColumnName="Contact_Id" />
       </EndProperty>
@@ -546,7 +546,7 @@
       </EndProperty>
       <Condition ColumnName="Contact_Id" IsNull="false" />
     </AssociationSetMapping>
-    <AssociationSetMapping Name="AccountContact" TypeName="EasyCRMModel.AccountContact" StoreEntitySet="ContactSet">
+    <AssociationSetMapping Name="AccountContact" TypeName="EasyCRM.Model.AccountContact" StoreEntitySet="ContactSet">
       <EndProperty Name="Account">
         <ScalarProperty Name="Id" ColumnName="Account_Id" />
       </EndProperty>
@@ -574,47 +574,47 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="Model1" DisplayType="false" ShowGrid="true" >
-        <EntityTypeShape EntityType="EasyCRMModel.User" Width="1.5" PointX="0.5" PointY="2.25" Height="3.1340950520833317" />
-        <EntityTypeShape EntityType="EasyCRMModel.Account" Width="1.5" PointX="3.875" PointY="2.75" Height="2.9417936197916656" />
-        <EntityTypeShape EntityType="EasyCRMModel.Contact" Width="1.5" PointX="2.625" PointY="5.875" Height="2.7494921874999996" />
-        <EntityTypeShape EntityType="EasyCRMModel.Task" Width="1.5" PointX="0.5" PointY="5.875" Height="2.7494921874999996" />
-        <EntityTypeShape EntityType="EasyCRMModel.Opportunity" Width="1.5" PointX="6.375" PointY="2.25" Height="2.1725878906249996" />
-        <EntityTypeShape EntityType="EasyCRMModel.IndustrialSector" Width="1.5" PointX="6.375" PointY="5.875" Height="1.4033821614583317" />
-        <AssociationConnector Association="EasyCRMModel.UserContact">
+        <EntityTypeShape EntityType="EasyCRM.Model.User" Width="1.5" PointX="0.5" PointY="2.25" Height="3.1340950520833317" />
+        <EntityTypeShape EntityType="EasyCRM.Model.Account" Width="1.5" PointX="3.875" PointY="2.75" Height="2.9417936197916656" />
+        <EntityTypeShape EntityType="EasyCRM.Model.Contact" Width="1.5" PointX="2.625" PointY="5.875" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="EasyCRM.Model.Task" Width="1.5" PointX="0.5" PointY="5.875" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="EasyCRM.Model.Opportunity" Width="1.5" PointX="6.375" PointY="2.25" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="EasyCRM.Model.IndustrialSector" Width="1.5" PointX="6.375" PointY="5.875" Height="1.4033821614583317" />
+        <AssociationConnector Association="EasyCRM.Model.UserContact">
           <ConnectorPoint PointX="2" PointY="5.3840950520833317" />
           <ConnectorPoint PointX="2.625" PointY="5.875" />
         </AssociationConnector>
-        <AssociationConnector Association="EasyCRMModel.UserAccount">
+        <AssociationConnector Association="EasyCRM.Model.UserAccount">
           <ConnectorPoint PointX="2" PointY="3.4229484049479164" />
           <ConnectorPoint PointX="3.875" PointY="3.4229484049479164" />
         </AssociationConnector>
-        <AssociationConnector Association="EasyCRMModel.UserOpportunity">
+        <AssociationConnector Association="EasyCRM.Model.UserOpportunity">
           <ConnectorPoint PointX="2" PointY="2.46875" />
           <ConnectorPoint PointX="6.375" PointY="2.46875" />
         </AssociationConnector>
-        <AssociationConnector Association="EasyCRMModel.UserTask">
+        <AssociationConnector Association="EasyCRM.Model.UserTask">
           <ConnectorPoint PointX="1.2187475" PointY="5.3840950520833317" />
           <ConnectorPoint PointX="1.2187475" PointY="5.875" />
         </AssociationConnector>
-        <AssociationConnector Association="EasyCRMModel.AccountIndustrialSector" ManuallyRouted="true">
+        <AssociationConnector Association="EasyCRM.Model.AccountIndustrialSector" ManuallyRouted="true">
           <ConnectorPoint PointX="5.375" PointY="5.1133234188198688" />
           <ConnectorPoint PointX="7.125" PointY="5.1133234188198688" />
           <ConnectorPoint PointX="7.125" PointY="5.875" />
         </AssociationConnector>
-        <AssociationConnector Association="EasyCRMModel.AccountOpportunity">
+        <AssociationConnector Association="EasyCRM.Model.AccountOpportunity">
           <ConnectorPoint PointX="5.375" PointY="3.5862939453125" />
           <ConnectorPoint PointX="6.375" PointY="3.5862939453125" />
         </AssociationConnector>
-        <AssociationConnector Association="EasyCRMModel.TaskAccount">
+        <AssociationConnector Association="EasyCRM.Model.TaskAccount">
           <ConnectorPoint PointX="2" PointY="8.7291666666666661" />
           <ConnectorPoint PointX="4.78125" PointY="8.7291666666666661" />
           <ConnectorPoint PointX="4.78125" PointY="5.6917936197916656" />
         </AssociationConnector>
-        <AssociationConnector Association="EasyCRMModel.TaskContact">
+        <AssociationConnector Association="EasyCRM.Model.TaskContact">
           <ConnectorPoint PointX="2" PointY="7.2809985937500006" />
           <ConnectorPoint PointX="2.625" PointY="7.2809985937500006" />
         </AssociationConnector>
-        <AssociationConnector Association="EasyCRMModel.AccountContact">
+        <AssociationConnector Association="EasyCRM.Model.AccountContact">
           <ConnectorPoint PointX="3.875" PointY="4.2296531288296562" />
           <ConnectorPoint PointX="3.2812514999999998" PointY="4.2296531288296562" />
           <ConnectorPoint PointX="3.2812514999999998" PointY="5.875" />
